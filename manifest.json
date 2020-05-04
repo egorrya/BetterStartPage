@@ -1,0 +1,12 @@
+{
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "description": "Displays all bookmarks in the new tab page",
+
+  "manifest_version": 2,
+  "name": "New Tab with Bookmarks",
+  "permissions": ["bookmarks", "chrome://favicon/"],
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "version": "0.0.1"
+}
