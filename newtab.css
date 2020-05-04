@@ -1,18 +1,42 @@
+@font-face {
+  font-family: 'Jost';
+  src: url('./fonts/Jost-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Jost';
+  font-weight: 500;
+  font-style: normal;
+
+  background: rgba(255, 255, 255, 1);
+  background: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(204, 204, 204, 1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(47%, rgba(246, 246, 246, 1)), color-stop(100%, rgba(204, 204, 204, 1)));
+  background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(204, 204, 204, 1) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(204, 204, 204, 1) 100%);
 }
 
 .container {
   margin: 0 auto;
   padding: 0;
   position: relative;
-  width: 900px;
+  width: 850px;
 }
 
 .bookmarks {
+
   display: block;
   width: 100%;
-  margin-top: 0;
+  margin-top: 60px;
   margin-right: -16px;
   margin-left: -16px;
 }
@@ -29,13 +53,12 @@
 .bookmarks .bookmarks__book a img {
   display: block;
 
-  margin: 10px auto;
+  margin: 12.5px auto 7.5px;
   text-align: center;
   text-decoration: none;
-  border: 1px solid black;
   border-radius: 15px;
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
 }
 
 .bookmarks .bookmarks__book a,
@@ -46,6 +69,7 @@
   margin: 7.5px auto;
   text-align: center;
   text-decoration: none;
+  color: #333333;
 }
 
 /* Folders */
@@ -57,11 +81,11 @@
 /* Folders icon and animation */
 
 .bookmarks__folder--icon {
-  margin: 15px auto;
+  margin: 15px auto 10px;
   display: block;
   position: relative;
-  width: 90px;
-  height: 80px;
+  width: 80px;
+  height: 75px;
   -webkit-perspective: 750px;
   perspective: 750px;
 }
@@ -79,7 +103,7 @@
   width: 100%;
   height: 92%;
   bottom: 0;
-  background-color: #cca352;
+  background: rgb(170, 178, 190);
 }
 
 .bookmarks__folder--icon span::after {
@@ -98,7 +122,14 @@
 }
 
 .bookmarks__folder--icon span::before {
-  background-color: #ffcc66;
+  background: rgba(219, 230, 246, 1);
+  background: -moz-linear-gradient(-45deg, rgba(219, 230, 246, 1) 0%, rgba(197, 121, 109, 1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(219, 230, 246, 1)), color-stop(100%, rgba(197, 121, 109, 1)));
+  background: -webkit-linear-gradient(-45deg, rgba(219, 230, 246, 1) 0%, rgba(197, 121, 109, 1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(219, 230, 246, 1) 0%, rgba(197, 121, 109, 1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(219, 230, 246, 1) 0%, rgba(197, 121, 109, 1) 100%);
+  background: linear-gradient(135deg, rgba(219, 230, 246, 1) 0%, rgba(197, 121, 109, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbe6f6', endColorstr='#c5796d', GradientType=1);
   width: 100%;
   height: 92%;
   bottom: 0;
@@ -127,7 +158,7 @@
   left: 0;
   width: 40%;
   height: 50%;
-  background-color: #cca352;
+  background: rgb(170, 178, 190);
   z-index: 1;
 }
 

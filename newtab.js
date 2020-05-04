@@ -34,7 +34,7 @@ const ProcessBookmarkNode = (node, dom) => {
     dom.html +=
       '<li class="bookmarks__book"><a href="' +
       node.url +
-      '"><img src="chrome://favicon/' +
+      '"><img src="https://logo.clearbit.com/' +
       node.url +
       '" />' +
       ShortenString(node.title, 30) +
