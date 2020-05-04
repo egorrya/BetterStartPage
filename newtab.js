@@ -5,7 +5,10 @@ const ready = (callback) => {
 
 ready(() => {
   chrome.bookmarks.getTree((itemTree) => {
-    let dom = { html: "" };
+    let dom = {
+      html: "",
+    };
+
     itemTree[0].children[0].children.forEach((child) => {
       ProcessBookmarkNode(child, dom);
     });
@@ -16,12 +19,17 @@ ready(() => {
 
 const ProcessBookmarkNode = (node, dom) => {
   if (node.children) {
-    dom.html += '<li class="bookmarks__folder"><h2>' + node.title + "</h2><ul>";
+    dom.html +=
+      '<li class="bookmarks__folder"><label class="bookmarks__folder--icon"><input type="checkbox"/><span></span></label><h2>' +
+      node.title +
+      "</h2><ul>";
+
     node.children.forEach((child) => {
       ProcessBookmarkNode(child, dom);
     });
     dom.html += "</ul></li>";
   }
+
   if (node.url) {
     dom.html +=
       '<li class="bookmarks__book"><a href="' +
