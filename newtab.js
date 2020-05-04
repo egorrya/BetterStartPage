@@ -16,7 +16,7 @@ ready(() => {
 
 const ProcessBookmarkNode = (node, dom) => {
   if (node.children) {
-    dom.html += "<li><h2>" + node.title + "</h2><ul>";
+    dom.html += '<li class="bookmarks__folder"><h2>' + node.title + "</h2><ul>";
     node.children.forEach((child) => {
       ProcessBookmarkNode(child, dom);
     });
@@ -24,9 +24,7 @@ const ProcessBookmarkNode = (node, dom) => {
   }
   if (node.url) {
     dom.html +=
-      '<li><a href="' +
-      node.url +
-      '" title="' +
+      '<li class="bookmarks__book"><a href="' +
       node.url +
       '"><img src="chrome://favicon/' +
       node.url +
