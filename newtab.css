@@ -28,9 +28,6 @@ body {
   font-style: normal;
 
   background: rgba(255, 255, 255, 1);
-  background: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(190, 190, 190, 1) 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(47%, rgba(246, 246, 246, 1)), color-stop(100%, rgba(190, 190, 190, 1)));
-  background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(190, 190, 190, 1) 100%);
   background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(190, 190, 190, 1) 100%);
 }
 
@@ -136,43 +133,24 @@ body {
   left: 5%;
   background-color: #fff;
   z-index: 2;
-  -webkit-transition: -webkit-transform 250ms ease 0ms;
-  transition: -webkit-transform 250ms ease 0ms;
   transition: transform 250ms ease 0ms;
-  transition: transform 250ms ease 0ms, -webkit-transform 250ms ease 0ms;
-  -webkit-transform: translate3d(0px, 0px, 0px);
   transform: translate3d(0px, 0px, 0px);
 }
 
 .bookmarks__folder--icon span::before {
   background: rgba(219, 230, 246, 1);
-  background: -moz-linear-gradient(-45deg, rgba(219, 230, 246, 1) 0%, rgba(197, 121, 109, 1) 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(219, 230, 246, 1)), color-stop(100%, rgba(197, 121, 109, 1)));
-  background: -webkit-linear-gradient(-45deg, rgba(219, 230, 246, 1) 0%, rgba(197, 121, 109, 1) 100%);
-  background: -o-linear-gradient(-45deg, rgba(219, 230, 246, 1) 0%, rgba(197, 121, 109, 1) 100%);
-  background: -ms-linear-gradient(-45deg, rgba(219, 230, 246, 1) 0%, rgba(197, 121, 109, 1) 100%);
   background: linear-gradient(135deg, rgba(219, 230, 246, 1) 0%, rgba(197, 121, 109, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dbe6f6', endColorstr='#c5796d', GradientType=1);
   width: 100%;
   height: 92%;
   bottom: 0;
   left: 0;
   z-index: 3;
-  -webkit-transition: -webkit-transform 500ms ease 0ms;
-  transition: -webkit-transform 500ms ease 0ms;
   transition: transform 500ms ease 0ms;
-  transition: transform 500ms ease 0ms, -webkit-transform 500ms ease 0ms;
-  -webkit-transform-origin: 0 100% 0;
   transform-origin: 0 100% 0;
   outline: 1px solid transparent;
-  /* Firefox anti-aliasing hack */
-  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
 }
 
