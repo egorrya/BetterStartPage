@@ -19,26 +19,30 @@ body {
   font-style: normal;
 
   background: rgba(255, 255, 255, 1);
-  background: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(204, 204, 204, 1) 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(47%, rgba(246, 246, 246, 1)), color-stop(100%, rgba(204, 204, 204, 1)));
-  background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(204, 204, 204, 1) 100%);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(204, 204, 204, 1) 100%);
+  background: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(190, 190, 190, 1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(47%, rgba(246, 246, 246, 1)), color-stop(100%, rgba(190, 190, 190, 1)));
+  background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(190, 190, 190, 1) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(190, 190, 190, 1) 100%);
 }
 
 .container {
   margin: 0 auto;
   padding: 0;
   position: relative;
-  width: 850px;
+  margin-top: 60px;
+  width: 800px;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333333;
 }
 
 .bookmarks {
-
   display: block;
   width: 100%;
-  margin-top: 60px;
-  margin-right: -16px;
-  margin-left: -16px;
+  padding: 0;
 }
 
 /* Main layout */
@@ -47,7 +51,6 @@ body {
 .bookmarks .bookmarks__folder {
   display: inline-block;
   width: 20%;
-  float: left;
 }
 
 .bookmarks .bookmarks__book a img {
@@ -56,7 +59,7 @@ body {
   margin: 12.5px auto 7.5px;
   text-align: center;
   text-decoration: none;
-  border-radius: 15px;
+  border-radius: 10px;
   width: 80px;
   height: 80px;
 }
@@ -74,8 +77,19 @@ body {
 
 /* Folders */
 
-.bookmarks .bookmarks__folder .bookmarks__book {
-  display: none
+.bookmarks .bookmarks__folder {
+  position: relative;
+}
+
+.bookmarks .bookmarks__folder .bookmarks__folder__inner {
+  display: none;
+
+  position: absolute;
+  top: 0;
+}
+
+.bookmarks .bookmarks__folder .bookmarks__folder__inner .active {
+  display: inline-block !important;
 }
 
 /* Folders icon and animation */
@@ -96,7 +110,7 @@ body {
 .bookmarks__folder--icon::after {
   position: absolute;
   content: "";
-  border-radius: calc(150px / 100 * 5);
+  border-radius: 6px;
 }
 
 .bookmarks__folder--icon::before {

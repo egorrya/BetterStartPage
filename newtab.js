@@ -13,17 +13,16 @@ ready(() => {
       ProcessBookmarkNode(child, dom);
     });
 
-    document.getElementById("bookmarks").innerHTML = dom.html;
+    bookmarks.innerHTML = dom.html;
   });
 });
 
 const ProcessBookmarkNode = (node, dom) => {
   if (node.children) {
     dom.html +=
-      '<li class="bookmarks__folder"><label class="bookmarks__folder--icon"><input type="checkbox"/><span></span></label><h2>' +
+      '<li class="bookmarks__folder" ><label class="bookmarks__folder--icon"><input type="checkbox"/><span></span></label><h2>' +
       node.title +
-      "</h2><ul>";
-
+      '</h2><ul class="bookmarks__folder__inner" >';
     node.children.forEach((child) => {
       ProcessBookmarkNode(child, dom);
     });
@@ -37,7 +36,7 @@ const ProcessBookmarkNode = (node, dom) => {
       '"><img src="https://logo.clearbit.com/' +
       node.url +
       '" />' +
-      ShortenString(node.title, 30) +
+      ShortenString(node.title, 20) +
       "</a></li>";
   }
 };
