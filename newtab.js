@@ -1,3 +1,7 @@
+window.onload = function () {
+  document.body.style.opacity = "1";
+};
+
 // Wait till page is loaded
 document.addEventListener("DOMContentLoaded", () => {
   // Get Chrome bookmarks tree

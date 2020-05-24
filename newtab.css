@@ -20,8 +20,6 @@ html {
 
 body {
   box-sizing: border-box;
-  background-color: #ffffff;
-  color: #222222;
   min-height: 100%;
   font-family: "Ubuntu", sans-serif;
   font-style: normal;
@@ -71,7 +69,6 @@ body {
   margin: 7.5px auto;
   text-align: center;
   text-decoration: none;
-  color: #333333;
 }
 
 /* Folders */
@@ -92,7 +89,6 @@ body {
 }
 
 /* Folders icon and animation */
-
 .bookmarks__folder--icon {
   margin: 15px auto 10px;
   display: block;
@@ -165,14 +161,35 @@ body {
   transform: rotateX(-35deg);
 }
 
+/* Transitions */
+
+body {
+  opacity: 0;
+}
+
+body,
+body a {
+  transition: all 0.8s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+/* THEMES */
 /* Light mode */
 body {
-  background: #fff;
-  color: #000;
+  background: #ffffff;
+  color: #222222;
+}
+
+body a {
+  color: #222222;
 }
 
 /* Dark mode */
 body.dark {
-  background: #000;
-  color: #fff;
+  background: #000000;
+  color: #f6f6f6;
+}
+
+body.dark a {
+  color: #f6f6f6;
 }
