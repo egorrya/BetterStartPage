@@ -177,10 +177,10 @@ body a {
 /* THEMES */
 
 :root {
-  --dark: #282828;
-  --dark-shade: #555;
-  --light: #f2f2f2;
-  --light-shade: #999;
+  --dark: #222222;
+  --dark-shade: #555555;
+  --light: #ffffff;
+  --light-shade: #999999;
   --third: #e6eef9;
 }
 
@@ -245,9 +245,9 @@ body.dark .moon {
 .theme-button .sun {
   display: inline-block;
   position: absolute;
-  top: 52%;
+  top: 52.5%;
   left: 50%;
-  transform: translate(-52%, -50%);
+  transform: translate(-52.5%, -50%);
 
   transition: opacity 1.5s;
 }
