@@ -20,7 +20,7 @@ ready(() => {
 const ProcessBookmarkNode = (node, dom) => {
   if (node.children) {
     dom.html +=
-      '<li class="bookmarks__folder" ><label class="bookmarks__folder--icon"><input type="checkbox"/><span></span></label><h2>' +
+      '<li class="bookmarks__folder"><label class="bookmarks__folder--icon"><input type="checkbox"/><span></span></label><h2>' +
       node.title +
       '</h2><ul class="bookmarks__folder__inner" >';
     node.children.forEach((child) => {
@@ -33,7 +33,7 @@ const ProcessBookmarkNode = (node, dom) => {
     dom.html +=
       '<li class="bookmarks__book"><a href="' +
       node.url +
-      '"><img src="https://logo.clearbit.com/' +
+      '"><img src="chrome://favicon/' +
       node.url +
       '" />' +
       ShortenString(node.title, 20) +

@@ -1,34 +1,34 @@
+/* Font Connection */
 @font-face {
-  font-family: 'Jost';
-  src: url('./fonts/Jost-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
+  font-family: "Ubuntu";
+  font-weight: 400;
+  src: url("fonts/Ubuntu.ttf") format("truetype");
 }
 
-* {
+/* Base */
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-*:before,
-*:after {
   box-sizing: inherit;
-  -webkit-font-smoothing: antialiased;
 }
-
 
 html {
-  min-height: 100%;
+  font-size: 62.5%;
 }
 
 body {
-  font-family: 'Jost';
-  font-weight: 500;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #222222;
+  min-height: 100%;
+  font-family: "Ubuntu", sans-serif;
   font-style: normal;
+}
 
-  background: rgba(255, 255, 255, 1);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(190, 190, 190, 1) 100%);
+::selection {
+  background-color: #e6eef9;
 }
 
 .container {
@@ -39,19 +39,12 @@ body {
   width: 800px;
 }
 
-.container h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  color: #333333;
-}
-
+/* Main layout */
 .bookmarks {
   display: block;
   width: 100%;
   padding: 0;
 }
-
-/* Main layout */
 
 .bookmarks .bookmarks__book,
 .bookmarks .bookmarks__folder {
@@ -73,7 +66,7 @@ body {
 .bookmarks .bookmarks__book a,
 .bookmarks .bookmarks__folder h2 {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   margin: 7.5px auto;
   text-align: center;
@@ -139,7 +132,11 @@ body {
 
 .bookmarks__folder--icon span::before {
   background: rgba(219, 230, 246, 1);
-  background: linear-gradient(135deg, rgba(219, 230, 246, 1) 0%, rgba(197, 121, 109, 1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(219, 230, 246, 1) 0%,
+    rgb(121, 121, 121) 100%
+  );
   width: 100%;
   height: 92%;
   bottom: 0;
@@ -163,107 +160,7 @@ body {
   z-index: 1;
 }
 
-.bookmarks__folder--icon input:hover+span::before {
+.bookmarks__folder--icon input:hover + span::before {
   -webkit-transform: rotateX(-35deg);
   transform: rotateX(-35deg);
-}
-
-
-
-.popup {
-  visibility: hidden;
-  -webkit-transition: visibility 0ms linear 0.3s;
-  transition: visibility 0ms linear 0.3s;
-}
-
-.popup--visible {
-  visibility: visible;
-  -webkit-transition: visibility 0ms;
-  transition: visibility 0ms;
-}
-
-.popup__background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10000;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  opacity: 0;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.popup--visible .popup__background {
-  opacity: 1;
-}
-
-.popup__content {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 10001;
-  min-width: 800px;
-  padding: 25px 50px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  text-align: center;
-  -webkit-animation: hide-popup 0.3s forwards;
-  animation: hide-popup 0.3s forwards;
-}
-
-.popup--visible .popup__content {
-  -webkit-animation: show-popup 0.3s forwards;
-  animation: show-popup 0.3s forwards;
-}
-
-.popup__content__title {
-  margin-bottom: 10px;
-  font-size: 28px;
-  font-weight: 100;
-  color: #333333;
-}
-
-/**
- * Popup animations.
- * Based on Sweet Alert: "https://t4t5.github.io/sweetalert/"
- */
-@keyframes show-popup {
-  0% {
-    -webkit-transform: translate(-50%, -50%) scale(0.7);
-    transform: translate(-50%, -50%) scale(0.7);
-    opacity: 0;
-  }
-
-  45% {
-    -webkit-transform: translate(-50%, -50%) scale(1.05);
-    transform: translate(-50%, -50%) scale(1.05);
-    opacity: 1;
-  }
-
-  80% {
-    -webkit-transform: translate(-50%, -50%) scale(0.95);
-    transform: translate(-50%, -50%) scale(0.95);
-  }
-
-  100% {
-    -webkit-transform: translate(-50%, -50%) scale(1);
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-@keyframes hide-popup {
-  0% {
-    -webkit-transform: translate(-50%, -50%) scale(1);
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: translate(-50%, -50%) scale(0.5);
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0;
-  }
 }
