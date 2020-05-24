@@ -1,4 +1,5 @@
-window.onload = function () {
+// Fade in on load
+window.onload = () => {
   document.body.style.opacity = "1";
 };
 
