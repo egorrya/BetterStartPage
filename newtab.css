@@ -164,3 +164,15 @@ body {
   -webkit-transform: rotateX(-35deg);
   transform: rotateX(-35deg);
 }
+
+/* Light mode */
+body {
+  background: #fff;
+  color: #000;
+}
+
+/* Dark mode */
+body.dark {
+  background: #000;
+  color: #fff;
+}
