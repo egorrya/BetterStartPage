@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Draw the DOM tree
   const ProcessBookmarkNode = (node, dom) => {
     if (node.children) {
-      dom.html += `<li class="bookmarks__folder">
+      dom.html += `
+      <li class="bookmarks__folder">
         <label class="bookmarks__folder--icon">
           <input type="checkbox"/>
           <span></span>
@@ -31,7 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
       node.children.forEach((child) => {
         ProcessBookmarkNode(child, dom);
       });
-      dom.html += `</ul></li>`;
+      dom.html += `
+          </ul>
+        </li>`;
     }
 
     if (node.url) {
