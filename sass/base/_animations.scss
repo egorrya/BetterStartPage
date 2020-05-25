@@ -1,0 +1,9 @@
+body {
+  opacity: 0;
+}
+
+body,
+body a {
+  transition: all 0.8s ease-in-out;
+  animation-fill-mode: forwards;
+}

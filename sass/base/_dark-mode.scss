@@ -1,0 +1,70 @@
+// Light mode colors
+body {
+  background-color: $color-w;
+  color: $color-b;
+
+  a {
+    color: $color-b;
+  }
+
+  svg {
+    fill: $color-b;
+  }
+}
+
+// Dark mode colors
+body.dark {
+  background-color: $color-b;
+  color: $color-w;
+
+  a {
+    color: $color-w;
+  }
+
+  svg {
+    fill: $color-w;
+  }
+}
+
+// Dark mode logic
+
+body {
+  &.dark .sun,
+  & .moon {
+    @include hidden;
+  }
+
+  & .sun,
+  &.dark .moon {
+    @include visible;
+  }
+}
+
+// Toggle themes button
+.theme-button {
+  background: transparent;
+  border: 1px solid transparent;
+  outline: none;
+  position: fixed;
+  width: 6rem;
+  height: 6rem;
+  top: 1.5rem;
+  right: 1.5rem;
+  cursor: pointer;
+  border-radius: 99px;
+  margin: 0 auto;
+
+  &:hover,
+  &:hover {
+    background: rgba(133, 133, 133, 0.5);
+    transition: all 0.8s;
+  }
+
+  & .moon,
+  & .sun {
+    @include absCenter;
+    display: inline-block;
+
+    transition: opacity 1.5s;
+  }
+}

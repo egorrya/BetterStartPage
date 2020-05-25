@@ -1,0 +1,286 @@
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 400;
+  src: url("fonts/Ubuntu.ttf") format("truetype"); }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100vw;
+  font-family: "Ubuntu", sans-serif;
+  font-style: normal; }
+
+::selection {
+  background-color: #e6eef9; }
+
+body {
+  opacity: 0; }
+
+body,
+body a {
+  transition: all 0.8s ease-in-out;
+  animation-fill-mode: forwards; }
+
+.u-center-text {
+  text-align: center !important; }
+
+.u-margin-top-s {
+  margin-top: 1.5rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-top-s {
+      margin-top: 1rem !important; } }
+
+.u-margin-top-m {
+  margin-top: 3rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-top-m {
+      margin-top: 2rem !important; } }
+
+.u-margin-top-l {
+  margin-top: 6rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-top-l {
+      margin-top: 4rem !important; } }
+
+.u-margin-top-xl {
+  margin-top: 9rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-top-xl {
+      margin-top: 6rem !important; } }
+
+.u-margin-top-xxl {
+  margin-top: 12rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-top-xxl {
+      margin-top: 8rem !important; } }
+
+.u-margin-bottom-s {
+  margin-bottom: 1.5rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-s {
+      margin-top: 1rem !important; } }
+
+.u-margin-bottom-m {
+  margin-bottom: 3rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-m {
+      margin-top: 2rem !important; } }
+
+.u-margin-bottom-l {
+  margin-bottom: 6rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-l {
+      margin-top: 4rem !important; } }
+
+.u-margin-bottom-xl {
+  margin-bottom: 9rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-xl {
+      margin-top: 6rem !important; } }
+
+.u-margin-bottom-xxl {
+  margin-bottom: 12rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-xxl {
+      margin-top: 8rem !important; } }
+
+.row {
+  max-width: 94rem;
+  margin: 0 auto; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  @media only screen and (max-width: 56.25em) {
+    .row {
+      max-width: 50rem;
+      padding: 0 2.5rem; } }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+    @media only screen and (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 6rem; } }
+  .row [class^="col-"] {
+    float: left;
+    padding: 20px 0; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+      @media only screen and (max-width: 56.25em) {
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 6rem; } }
+    @media only screen and (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important; } }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc( 2 * (100% - 2 * 6rem) / 3 + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc( 2 * (100% - 3 * 6rem) / 4 + 6rem); }
+  .row .col-3-of-4 {
+    width: calc( 3 * (100% - 3 * 6rem) / 4 + 6rem * 2); }
+
+body {
+  background-color: #ffffff;
+  color: #222222; }
+  body a {
+    color: #222222; }
+  body svg {
+    fill: #222222; }
+
+body.dark {
+  background-color: #222222;
+  color: #ffffff; }
+  body.dark a {
+    color: #ffffff; }
+  body.dark svg {
+    fill: #ffffff; }
+
+body.dark .sun,
+body .moon {
+  visibility: hidden;
+  opacity: 0; }
+
+body .sun,
+body.dark .moon {
+  visibility: visible;
+  opacity: 1; }
+
+.theme-button {
+  background: transparent;
+  border: 1px solid transparent;
+  outline: none;
+  position: fixed;
+  width: 6rem;
+  height: 6rem;
+  top: 1.5rem;
+  right: 1.5rem;
+  cursor: pointer;
+  border-radius: 99px;
+  margin: 0 auto; }
+  .theme-button:hover, .theme-button:hover {
+    background: rgba(133, 133, 133, 0.5);
+    transition: all 0.8s; }
+  .theme-button .moon,
+  .theme-button .sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    transition: opacity 1.5s; }
+
+/* Main layout */
+.bookmarks {
+  display: block;
+  width: 100%;
+  padding: 0;
+  /* Folders */ }
+  .bookmarks__book, .bookmarks__folder {
+    display: inline-block;
+    width: 16.5%;
+    margin: 1rem auto; }
+  .bookmarks__book a img {
+    display: block;
+    margin: 1.25px auto 7.5px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+    width: 8rem;
+    height: 8rem; }
+  .bookmarks__book a,
+  .bookmarks__folder h2 {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none; }
+  .bookmarks__folder {
+    position: relative;
+    /* Folders icon and animation */ }
+    .bookmarks__folder__inner {
+      display: none;
+      position: absolute;
+      top: 0; }
+      .bookmarks__folder__inner .active {
+        display: inline-block !important; }
+    .bookmarks__folder--icon {
+      margin: 1.25px auto 7.5px;
+      display: block;
+      position: relative;
+      width: 8rem;
+      height: 8rem;
+      box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+      -webkit-perspective: 750px;
+      perspective: 750px;
+      border-radius: 6px; }
+      .bookmarks__folder--icon span::before,
+      .bookmarks__folder--icon span::after, .bookmarks__folder--icon::before, .bookmarks__folder--icon::after {
+        position: absolute;
+        content: "";
+        border-radius: 6px; }
+      .bookmarks__folder--icon::before {
+        width: 100%;
+        height: 92%;
+        bottom: 0;
+        background: #aab2be; }
+      .bookmarks__folder--icon::after {
+        top: 0;
+        left: 0;
+        width: 40%;
+        height: 50%;
+        background: #aab2be;
+        z-index: 1; }
+      .bookmarks__folder--icon span::after {
+        width: 90%;
+        height: 85%;
+        bottom: 0;
+        left: 5%;
+        background-color: #fff;
+        z-index: 2;
+        transition: transform 250ms;
+        transform: translate3d(0px, 0px, 0px); }
+      .bookmarks__folder--icon span::before {
+        background: #dbe6f6;
+        background: linear-gradient(135deg, #dbe6f6 0%, #797979 100%);
+        width: 100%;
+        height: 92%;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        transition: transform 500ms;
+        transform-origin: 0 100% 0;
+        outline: none;
+        transform-style: preserve-3d;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+      .bookmarks__folder--icon input:hover + span::before {
+        -webkit-transform: rotateX(-35deg);
+        transform: rotateX(-35deg); }

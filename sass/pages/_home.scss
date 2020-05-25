@@ -1,0 +1,126 @@
+/* Main layout */
+.bookmarks {
+  display: block;
+  width: 100%;
+  padding: 0;
+
+  &__book,
+  &__folder {
+    display: inline-block;
+    width: 16.5%;
+    margin: 1rem auto;
+  }
+
+  &__book a img {
+    display: block;
+
+    margin: 1.25px auto 7.5px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+    width: 8rem;
+    height: 8rem;
+  }
+
+  &__book a,
+  &__folder h2 {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  /* Folders */
+  &__folder {
+    position: relative;
+
+    &__inner {
+      display: none;
+
+      position: absolute;
+      top: 0;
+
+      & .active {
+        display: inline-block !important;
+      }
+    }
+
+    /* Folders icon and animation */
+    &--icon {
+      margin: 1.25px auto 7.5px;
+      display: block;
+      position: relative;
+      width: 8rem;
+      height: 8rem;
+      box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+      -webkit-perspective: 750px;
+      perspective: 750px;
+      border-radius: 6px;
+
+      & span::before,
+      & span::after,
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        border-radius: 6px;
+      }
+
+      &::before {
+        width: 100%;
+        height: 92%;
+        bottom: 0;
+        background: rgb(170, 178, 190);
+      }
+
+      &::after {
+        top: 0;
+        left: 0;
+        width: 40%;
+        height: 50%;
+        background: rgb(170, 178, 190);
+        z-index: 1;
+      }
+
+      & span::after {
+        width: 90%;
+        height: 85%;
+        bottom: 0;
+        left: 5%;
+        background-color: #fff;
+        z-index: 2;
+        transition: transform 250ms;
+        transform: translate3d(0px, 0px, 0px);
+      }
+
+      & span::before {
+        background: rgba(219, 230, 246, 1);
+        background: linear-gradient(
+          135deg,
+          rgba(219, 230, 246, 1) 0%,
+          rgb(121, 121, 121) 100%
+        );
+        width: 100%;
+        height: 92%;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        transition: transform 500ms;
+        transform-origin: 0 100% 0;
+        outline: none;
+        transform-style: preserve-3d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      & input:hover + span::before {
+        -webkit-transform: rotateX(-35deg);
+        transform: rotateX(-35deg);
+      }
+    }
+  }
+}
