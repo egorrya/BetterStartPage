@@ -20,30 +20,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Draw the DOM tree
   const ProcessBookmarkNode = (node, dom) => {
+    // Drawing folders
     if (node.children) {
       dom.html += `
-      <li class="bookmarks__folder">
-        <label class="bookmarks__folder--icon">
-          <input type="checkbox"/>
-          <span></span>
-        </label>
-        <h2>${node.title}</h2>
-        <ul class="bookmarks__folder__inner" >`;
+      <div class="folder">
+          <div class="folder-apps" tabindex="0">`;
       node.children.forEach((child) => {
         ProcessBookmarkNode(child, dom);
       });
       dom.html += `
-          </ul>
-        </li>`;
+          </div>
+          <div class="bg-blur"></div>
+          <div class="folder-name">${ShortenString(node.title, 14)}</div>
+        </div>`;
     }
 
+    // Drawing app icon
+    // <img src="chrome://favicon/${node.url}"/>
     if (node.url) {
-      dom.html += `<li class="bookmarks__book">
-                    <a href="${node.url}">
-                    <img src="chrome://favicon/${node.url}"/>
-                    ${ShortenString(node.title, 20)} 
-                    </a>
-                  </li>`;
+      dom.html += ` <a class="app" href="${node.url}">
+                      <div class="app-icon"></div>
+                      <div class="app-name">${ShortenString(
+                        node.title,
+                        14
+                      )}</div>
+                    </a>`;
     }
   };
 
