@@ -1,126 +1,199 @@
-/* Main layout */
-.bookmarks {
-  display: block;
-  width: 100%;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
   padding: 0;
+}
 
-  &__book,
-  &__folder {
-    display: inline-block;
-    width: 16.5%;
-    margin: 1rem auto;
-  }
+body {
+  font-family: sans-serif;
+  background-color: #222;
+  letter-spacing: 0.5px;
+}
 
-  &__book a img {
-    display: block;
+.apps {
+  transition: transform 0.6s ease-in-out;
+  width: 700px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  z-index: 2;
+}
 
-    margin: 1.25px auto 7.5px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 15px;
-    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
-    width: 8rem;
-    height: 8rem;
-  }
+.apps__page {
+  background-color: #333333;
+  display: inline-flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 25px 0 7.5px;
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  $z: 1px;
 
-  &__book a,
-  &__folder h2 {
-    display: block;
-    font-size: 1rem;
-    font-weight: 400;
-    margin: 0 auto;
-    text-align: center;
-    text-decoration: none;
-  }
+  @for $fy from 1 through 1000 {
+    $y: 100px - (100 * ($fy - 1));
 
-  /* Folders */
-  &__folder {
-    position: relative;
+    @for $fx from 1 through 7 {
+      $x: -10px - (100 * ($fx - 1)) + 190.5px;
 
-    &__inner {
-      display: none;
+      .folder:nth-child(#{$fx+(7 * ($fy - 1))}) .folder-apps.expand {
+        transform: scale(1, 1) translate3d($x, $y, $z);
 
-      position: absolute;
-      top: 0;
-
-      & .active {
-        display: inline-block !important;
+        ~ .folder-name {
+          transform: translate3d($x, $y - 376, $z);
+          ~ .x-touch {
+            transform: translate3d($x, $y + 0, $z);
+          }
+        }
       }
     }
+  }
+}
 
-    /* Folders icon and animation */
-    &--icon {
-      margin: 1.25px auto 7.5px;
-      display: block;
-      position: relative;
-      width: 8rem;
-      height: 8rem;
-      box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
-      -webkit-perspective: 750px;
-      perspective: 750px;
-      border-radius: 6px;
+/** Apps **/
+.app,
+.folder {
+  margin: 0 20px 15px;
+  max-width: 60px;
+  max-height: 80px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
+}
 
-      & span::before,
-      & span::after,
-      &::before,
-      &::after {
-        position: absolute;
-        content: "";
-        border-radius: 6px;
-      }
+.app-icon,
+.folder-apps {
+  margin: auto;
+}
 
-      &::before {
-        width: 100%;
-        height: 92%;
-        bottom: 0;
-        background: rgb(170, 178, 190);
-      }
+.app-icon {
+  background-image: linear-gradient(#dde, #aab);
+  border-radius: 9px;
+  width: 60px;
+  height: 60px;
+}
 
-      &::after {
-        top: 0;
-        left: 0;
-        width: 40%;
-        height: 50%;
-        background: rgb(170, 178, 190);
-        z-index: 1;
-      }
+.x-touch {
+  font-size: 30px;
+  opacity: 0;
+  width: 304px;
+  background-color: rgba(#656565, 0.6);
+  border-radius: 99px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
 
-      & span::after {
-        width: 90%;
-        height: 85%;
-        bottom: 0;
-        left: 5%;
-        background-color: #fff;
-        z-index: 2;
-        transition: transform 250ms;
-        transform: translate3d(0px, 0px, 0px);
-      }
+.bg-blur {
+  position: absolute;
+  backdrop-filter: blur(0px);
+  top: -15%;
+  left: -15%;
+  width: 130%;
+  height: 130%;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s;
+  z-index: 1;
+}
 
-      & span::before {
-        background: rgba(219, 230, 246, 1);
-        background: linear-gradient(
-          135deg,
-          rgba(219, 230, 246, 1) 0%,
-          rgb(121, 121, 121) 100%
-        );
-        width: 100%;
-        height: 92%;
-        bottom: 0;
-        left: 0;
-        z-index: 3;
-        transition: transform 500ms;
-        transform-origin: 0 100% 0;
-        outline: none;
-        transform-style: preserve-3d;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+.folder-apps::-webkit-scrollbar {
+  display: none;
+}
 
-      & input:hover + span::before {
-        -webkit-transform: rotateX(-35deg);
-        transform: rotateX(-35deg);
-      }
+.folder-apps {
+  background-color: rgba(#656565, 0.6);
+  overflow-y: scroll;
+  border-radius: 45px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  transition: transform 0.15s;
+  padding: 48px 36px 40px;
+  width: 304px;
+  height: 304px;
+  $scale: 60/304;
+  transform: scale($scale, $scale) {
+    origin: 0 0;
+  }
+
+  .app {
+    pointer-events: none;
+  }
+
+  &.expand {
+    backdrop-filter: blur(0px);
+    outline: 0;
+    padding: 26px 8px 8px;
+
+    ~ .folder-name {
+      animation: 0.8s ease-in-out 0s forwards fadeIn;
+      font-size: 30px;
+      opacity: 0;
+      width: 300px;
     }
+
+    ~ .x-touch {
+      animation: 0.6s ease-in-out 0s forwards fadeIn;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    ~ .bg-blur {
+      backdrop-filter: blur(5px);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .app {
+      margin: 0 18px 10px 18px;
+      pointer-events: initial;
+    }
+
+    .app-icon {
+      border-radius: 9px;
+    }
+
+    .app-name {
+      display: inherit;
+    }
+  }
+
+  .app {
+    margin: 0 8px 20px 8px;
+  }
+
+  .app-icon {
+    border-radius: 18px;
+  }
+
+  .app-name {
+    display: none;
+  }
+}
+
+.app-name,
+.folder-name {
+  text-align: center;
+  padding-top: 5px;
+  font-size: 8px;
+  user-select: none;
+}
+
+.folder-name {
+  transform: translateY(-244px);
+  cursor: default;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -1,10 +1,15 @@
-// Fade in on load
 window.onload = () => {
+  // Fade in on load
   document.body.style.opacity = "1";
-};
 
-// Wait till page is loaded
-document.addEventListener("DOMContentLoaded", () => {
+  // Change theme
+  changeTheme();
+
+  // Save user's theme to localStorage
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+
   // Get Chrome bookmarks tree
   chrome.bookmarks.getTree((itemTree) => {
     let dom = {
@@ -15,46 +20,72 @@ document.addEventListener("DOMContentLoaded", () => {
       ProcessBookmarkNode(child, dom);
     });
 
-    bookmarks.innerHTML = dom.html;
+    const bookmarks = document.getElementById("bookmarks");
+    bookmarks.insertAdjacentHTML("afterbegin", dom.html);
+    folderAnimation();
+  });
+};
+
+// This function makes string shorter
+const ShortenString = (str, length) => {
+  return str.length > length ? str.substr(0, length - 3) + "..." : str;
+};
+
+const ProcessBookmarkNode = (node, dom) => {
+  // Writing folder
+  if (node.children) {
+    dom.html += `
+      <div class="folder">
+        <div class="folder-apps">`;
+    node.children.forEach((child) => {
+      ProcessBookmarkNode(child, dom);
+    });
+    dom.html += `
+        </div>
+        <div class="folder-name">${ShortenString(node.title, 14)}</div>
+        <div class="x-touch">Close</div>
+        <div class="bg-blur"></div>
+      </div>`;
+  }
+
+  // Writing app icon
+  // <img src="chrome://favicon/${node.url}"/>
+  if (node.url) {
+    dom.html += ` <a class="app" href="${node.url}">
+                        <div class="app-icon"></div>
+                        <div class="app-name">${ShortenString(
+                          node.title,
+                          14
+                        )}</div>
+                      </a>`;
+  }
+};
+
+// Animation of open/close
+const folderAnimation = () => {
+  const folderApps = document.querySelectorAll(".folder-apps");
+  const xTouch = document.querySelectorAll(".x-touch");
+
+  // open
+  folderApps.forEach((el) => {
+    el.addEventListener("click", () => {
+      el.classList.toggle("expand");
+    });
   });
 
-  // Draw the DOM tree
-  const ProcessBookmarkNode = (node, dom) => {
-    if (node.children) {
-      dom.html += `
-      <li class="bookmarks__folder">
-        <label class="bookmarks__folder--icon">
-          <input type="checkbox"/>
-          <span></span>
-        </label>
-        <h2>${node.title}</h2>
-        <ul class="bookmarks__folder__inner" >`;
-      node.children.forEach((child) => {
-        ProcessBookmarkNode(child, dom);
-      });
-      dom.html += `
-          </ul>
-        </li>`;
-    }
+  // close
+  xTouch.forEach((el) => {
+    el.addEventListener("click", () => {
+      for (let item of folderApps) {
+        item.classList.remove("expand");
+      }
+    });
+  });
+};
 
-    if (node.url) {
-      dom.html += `<li class="bookmarks__book">
-                    <a href="${node.url}">
-                    <img src="chrome://favicon/${node.url}"/>
-                    ${ShortenString(node.title, 20)} 
-                    </a>
-                  </li>`;
-    }
-  };
-
-  // This function makes string shorter
-  const ShortenString = (str, length) => {
-    return str.length > length ? str.substr(0, length - 3) + "..." : str;
-  };
-
-  // Change theme
+// dark theme
+const changeTheme = () => {
   const themeToggleButton = document.getElementById("theme-toggle");
-
   themeToggleButton.addEventListener("click", () => {
     document.body.classList.toggle("dark");
     localStorage.setItem(
@@ -62,9 +93,4 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.contains("dark") ? "dark" : "light"
     );
   });
-
-  // Save user's theme to localStorage
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark");
-  }
-});
+};
