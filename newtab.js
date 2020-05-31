@@ -42,7 +42,7 @@ const ProcessBookmarkNode = (node, dom) => {
     });
     dom.html += `
         </div>
-        <div class="folder-name">${ShortenString(node.title, 14)}</div>
+        <div class="folder-name">${ShortenString(node.title, 16)}</div>
         <div class="x-touch">Close</div>
         <div class="bg-blur"></div>
       </div>`;
@@ -55,7 +55,7 @@ const ProcessBookmarkNode = (node, dom) => {
                         <div class="app-icon"></div>
                         <div class="app-name">${ShortenString(
                           node.title,
-                          14
+                          16
                         )}</div>
                       </a>`;
   }
