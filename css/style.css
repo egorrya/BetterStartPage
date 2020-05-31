@@ -12,19 +12,18 @@ body {
 
 .apps {
   transition: transform 0.6s ease-in-out;
-  width: 700px;
-  margin: 0 auto;
+  width: 730px;
+  background-color: #333333;
+  padding: 30px 15px 10px;
+  border-radius: 35px;
+  margin: 30px auto 0;
   transform-style: preserve-3d;
   z-index: 2; }
 
 .apps__page {
-  background-color: #333333;
   display: inline-flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  margin-top: 30px;
-  padding: 25px 0 7.5px;
-  border-radius: 30px;
   width: 100%;
   height: 100%; }
   .apps__page .folder:nth-child(1) .folder-apps.expand {
