@@ -32,10 +32,10 @@ body {
   $z: 1px;
 
   @for $fy from 1 through 1000 {
-    $y: 100px - (100 * ($fy - 1));
+    $y: 65px - (100 * ($fy - 1));
 
     @for $fx from 1 through 7 {
-      $x: -10px - (100 * ($fx - 1)) + 174px;
+      $x: -10px - (100 * ($fx - 1)) + 175px;
 
       .folder:nth-child(#{$fx+(7 * ($fy - 1))}) .folder-apps.expand {
         transform: scale(1, 1) translate3d($x, $y, $z);
@@ -43,7 +43,7 @@ body {
         ~ .folder-name {
           transform: translate3d($x, $y - 400, $z);
           ~ .x-touch {
-            transform: translate3d($x, $y + 0, $z);
+            transform: translate3d($x, $y - 20, $z);
           }
         }
       }
@@ -54,7 +54,7 @@ body {
 /** Apps **/
 .app,
 .folder {
-  margin: 0 15px 15px;
+  margin: 0 15px 20px;
   max-width: 70px;
   max-height: 90px;
   cursor: pointer;
@@ -127,13 +127,13 @@ body {
   &.expand {
     backdrop-filter: blur(0px);
     outline: 0;
-    padding: 30px 14px 8px 18px;
+    padding: 30px 18px 5px;
 
     ~ .folder-name {
       animation: 0.8s ease-in-out 0s forwards fadeIn;
       font-size: 30px;
       opacity: 0;
-      width: 342px;
+      width: 360px;
     }
 
     ~ .x-touch {
@@ -149,7 +149,7 @@ body {
     }
 
     .app {
-      margin: 0 16px 14px;
+      margin: 0 16px 13px;
       pointer-events: initial;
     }
 
