@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap");
+
+$container: 750px;
+
 *,
 *:before,
 *:after {
@@ -7,20 +11,23 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
   background-color: #222;
   letter-spacing: 0.5px;
 }
 
 .apps {
   transition: transform 0.6s ease-in-out;
-  width: 730px; // container - 700px
-  background-color: #333333;
+  width: $container; // container - 700px
   padding: 30px 15px 10px;
   border-radius: 35px;
   margin: 45px auto 0;
   transform-style: preserve-3d;
   z-index: 2;
+
+  background-color: #333333;
+  box-shadow: 0 3px 13px 0 rgba(#666, 0.3);
 }
 
 .apps__page {
@@ -32,12 +39,12 @@ body {
   $z: 1px;
 
   @for $fy from 1 through 1000 {
-    $y: 65px - (100 * ($fy - 1));
+    $y: 65px - (110 * ($fy - 1));
 
-    @for $fx from 1 through 7 {
-      $x: -10px - (100 * ($fx - 1)) + 175px;
+    @for $fx from 1 through 6 {
+      $x: -10px - (120 * ($fx - 1)) + 173px;
 
-      .folder:nth-child(#{$fx+(7 * ($fy - 1))}) .folder-apps.expand {
+      .folder:nth-child(#{$fx+(6 * ($fy - 1))}) .folder-apps.expand {
         transform: scale(1, 1) translate3d($x, $y, $z);
 
         ~ .folder-name {
@@ -54,7 +61,8 @@ body {
 /** Apps **/
 .app,
 .folder {
-  margin: 0 15px 15px;
+  // 120px width with margin
+  margin: 0 25px 20px;
   max-width: 70px;
   max-height: 90px;
   cursor: pointer;
@@ -62,19 +70,16 @@ body {
   color: #ffffff;
 }
 
-.app-icon,
-.folder-apps {
-  margin: auto;
-}
-
 .app-icon {
-  background-image: linear-gradient(#dde, #aab);
+  background-image: linear-gradient(to right bottom, #ddd, #aab);
   border-radius: 9px;
   width: 70px;
+  margin: auto;
   height: 70px;
 }
 
 .x-touch {
+  display: none;
   font-size: 30px;
   opacity: 0;
   width: 342px;
@@ -104,6 +109,7 @@ body {
 }
 
 .folder-apps {
+  margin: auto;
   background-color: rgba(#656565, 0.6);
   overflow-y: scroll;
   border-radius: 45px;
@@ -112,7 +118,7 @@ body {
   align-content: flex-start;
   flex-wrap: wrap;
   transition: transform 0.2s;
-  padding: 52px 35px 20px;
+  padding: 45px 35px 10px;
   width: 342px;
   height: 342px;
   $scale: 70/342;
@@ -122,6 +128,15 @@ body {
 
   .app {
     pointer-events: none;
+    margin: 0 10px 25px;
+  }
+
+  .app-icon {
+    border-radius: 16px;
+  }
+
+  .app-name {
+    display: none;
   }
 
   &.expand {
@@ -137,7 +152,8 @@ body {
     }
 
     ~ .x-touch {
-      animation: 0.6s ease-in-out 0s forwards fadeIn;
+      display: block;
+      animation: 0.8s ease-in-out 0s forwards fadeIn;
       visibility: visible;
       opacity: 1;
     }
@@ -161,18 +177,6 @@ body {
       display: inherit;
     }
   }
-
-  .app {
-    margin: 0 10px 23px;
-  }
-
-  .app-icon {
-    border-radius: 18px;
-  }
-
-  .app-name {
-    display: none;
-  }
 }
 
 .app-name,
@@ -182,8 +186,8 @@ body {
   font-size: 10px;
   line-height: 13px;
   user-select: none;
-  width: 90px;
-  margin-left: -10px;
+  width: 100px;
+  margin-left: -15px;
 }
 
 .folder-name {
@@ -197,5 +201,44 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+
+.buttons {
+  transition: transform 0.6s ease-in-out;
+  width: $container;
+  margin: 0 auto;
+
+  .button {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 99px;
+    margin: 20px 20px 20px 0;
+    text-align: center;
+    border: none;
+    outline: none;
+    text-transform: capitalize;
+    cursor: pointer;
+    background-size: 300% 100%;
+    transition: all 0.4s ease-in-out;
+
+    background-color: #333333;
+    color: #ffffff;
+    background-image: linear-gradient(
+      to right,
+      #333333,
+      #333333,
+      #ffffff,
+      #ddd
+    );
+    box-shadow: 0 3px 13px 0 rgba(#666, 0.3);
+
+    &:hover {
+      background-position: 100% 0;
+      transition: all 0.4s ease-in-out;
+
+      box-shadow: 0 3px 13px 0 rgba(#ffffff, 0.3);
+      color: #222222;
+    }
   }
 }
