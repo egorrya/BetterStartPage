@@ -1,6 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
 
 $container: 750px;
+
+::-webkit-scrollbar-track-piece {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #888888;
+  --outline: 1px solid rgba(0, 0, 0, 0);
+  --outline-offset: -1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #111111;
+}
 
 *,
 *:before,
@@ -11,7 +31,8 @@ $container: 750px;
 }
 
 body {
-  font-family: "Manrope", sans-serif;
+  position: relative;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
   background-color: #222;
   letter-spacing: 0.5px;
@@ -20,9 +41,9 @@ body {
 .apps {
   transition: transform 0.6s ease-in-out;
   width: $container; // container - 700px
-  padding: 30px 15px 10px;
+  padding: 25px 15px 5px;
   border-radius: 35px;
-  margin: 45px auto 0;
+  margin: 60px auto 0;
   transform-style: preserve-3d;
   z-index: 2;
 
@@ -39,7 +60,7 @@ body {
   $z: 1px;
 
   @for $fy from 1 through 1000 {
-    $y: 65px - (110 * ($fy - 1));
+    $y: 50px - (110 * ($fy - 1));
 
     @for $fx from 1 through 6 {
       $x: -10px - (120 * ($fx - 1)) + 173px;
@@ -48,7 +69,7 @@ body {
         transform: scale(1, 1) translate3d($x, $y, $z);
 
         ~ .folder-name {
-          transform: translate3d($x, $y - 400, $z);
+          transform: translate3d($x, $y - 390, $z);
           ~ .x-touch {
             transform: translate3d($x, $y + 10, $z);
           }
@@ -100,7 +121,7 @@ body {
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.25s;
+  transition: opacity 0.5s;
   z-index: 1;
 }
 
@@ -117,7 +138,7 @@ body {
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  transition: transform 0.2s;
+  transition: transform 0.3s ease-in;
   padding: 45px 35px 10px;
   width: 342px;
   height: 342px;
@@ -137,6 +158,8 @@ body {
 
   .app-name {
     display: none;
+    opacity: 0;
+    visibility: hidden;
   }
 
   &.expand {
@@ -145,7 +168,7 @@ body {
     padding: 30px 18px 5px;
 
     ~ .folder-name {
-      animation: 0.8s ease-in-out 0s forwards fadeIn;
+      animation: 1s ease-in-out 0s forwards fadeIn;
       font-size: 30px;
       opacity: 0;
       width: 360px;
@@ -153,7 +176,7 @@ body {
 
     ~ .x-touch {
       display: block;
-      animation: 0.8s ease-in-out 0s forwards fadeIn;
+      animation: 1s ease-in-out 0s forwards fadeIn;
       visibility: visible;
       opacity: 1;
     }
@@ -175,6 +198,9 @@ body {
 
     .app-name {
       display: inherit;
+      visibility: visible;
+      animation: 1s ease-in-out 0s forwards fadeIn;
+      opacity: 1;
     }
   }
 }
@@ -205,7 +231,7 @@ body {
 }
 
 .buttons {
-  transition: transform 0.6s ease-in-out;
+  transition: transform 1s ease-in-out;
   width: $container;
   margin: 0 auto;
 
@@ -219,8 +245,9 @@ body {
     outline: none;
     text-transform: capitalize;
     cursor: pointer;
+    user-select: none;
     background-size: 300% 100%;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
     background-color: #333333;
     color: #ffffff;
@@ -235,7 +262,7 @@ body {
 
     &:hover {
       background-position: 100% 0;
-      transition: all 0.4s ease-in-out;
+      transition: all 0.5s ease-in-out;
 
       box-shadow: 0 3px 13px 0 rgba(#ffffff, 0.3);
       color: #222222;
