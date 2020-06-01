@@ -18,7 +18,7 @@ body {
   background-color: #333333;
   padding: 30px 15px 10px;
   border-radius: 35px;
-  margin: 30px auto 0;
+  margin: 45px auto 0;
   transform-style: preserve-3d;
   z-index: 2;
 }
@@ -43,7 +43,7 @@ body {
         ~ .folder-name {
           transform: translate3d($x, $y - 400, $z);
           ~ .x-touch {
-            transform: translate3d($x, $y - 20, $z);
+            transform: translate3d($x, $y + 10, $z);
           }
         }
       }
@@ -54,7 +54,7 @@ body {
 /** Apps **/
 .app,
 .folder {
-  margin: 0 15px 20px;
+  margin: 0 15px 15px;
   max-width: 70px;
   max-height: 90px;
   cursor: pointer;
@@ -112,7 +112,7 @@ body {
   align-content: flex-start;
   flex-wrap: wrap;
   transition: transform 0.2s;
-  padding: 52px 42px 40px;
+  padding: 52px 35px 20px;
   width: 342px;
   height: 342px;
   $scale: 70/342;
@@ -163,7 +163,7 @@ body {
   }
 
   .app {
-    margin: 0 8px 20px 8px;
+    margin: 0 10px 23px;
   }
 
   .app-icon {
@@ -178,8 +178,9 @@ body {
 .app-name,
 .folder-name {
   text-align: center;
-  padding-top: 5px;
+  padding-top: 4px;
   font-size: 10px;
+  line-height: 13px;
   user-select: none;
   width: 90px;
   margin-left: -10px;
