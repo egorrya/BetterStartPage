@@ -31,6 +31,15 @@ const ShortenString = (str, length) => {
   return str.length > length ? str.substr(0, length - 3) + "..." : str;
 };
 
+// This function makes string shorter
+const FirstLetter = (str) => {
+  if (str[0]) {
+    return str[0];
+  } else {
+    return "";
+  }
+};
+
 const ProcessBookmarkNode = (node, dom) => {
   // Writing folder
   if (node.children) {
@@ -52,7 +61,11 @@ const ProcessBookmarkNode = (node, dom) => {
   // <img src="chrome://favicon/${node.url}"/>
   if (node.url) {
     dom.html += ` <a class="app" href="${node.url}">
-                        <div class="app-icon"></div>
+                        <div class="app-icon">
+                        <div class="app-icon-letter">${FirstLetter(
+                          node.title
+                        )}</div>
+                        </div>
                         <div class="app-name">${ShortenString(
                           node.title,
                           18

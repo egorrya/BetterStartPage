@@ -92,11 +92,27 @@ body {
 }
 
 .app-icon {
-  background-image: linear-gradient(to right bottom, #ddd, #aab);
+  position: relative;
+  background-image: linear-gradient(to right bottom, #666, #aaa);
   border-radius: 9px;
   width: 70px;
   margin: auto;
   height: 70px;
+
+  &-letter {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #fff;
+
+    padding-top: 22px;
+
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
 }
 
 .x-touch {
@@ -109,6 +125,7 @@ body {
   padding: 20px 0;
   text-align: center;
   font-size: 14px;
+  user-select: none;
 }
 
 .bg-blur {
@@ -208,12 +225,19 @@ body {
 .app-name,
 .folder-name {
   text-align: center;
-  padding-top: 4px;
+  padding-top: 5px;
   font-size: 10px;
   line-height: 13px;
   user-select: none;
   width: 100px;
   margin-left: -15px;
+}
+
+.folder {
+  .app-name {
+    // font-size: 9px;
+    padding-top: 3px;
+  }
 }
 
 .folder-name {
