@@ -100,7 +100,25 @@ body {
   margin: auto;
   height: 70px;
 
+  &-img {
+    // temporary
+    display: none;
+
+    z-index: 21;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    width: 70px;
+    height: 70px;
+  }
+
   &-letter {
+    z-index: 20;
+
     font-size: 24px;
     text-transform: uppercase;
     color: #fff;
