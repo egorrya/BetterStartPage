@@ -1,6 +1,4 @@
 window.onload = () => {
-  // Fade in on load
-  document.body.style.opacity = "1";
 
   // Change theme
   changeTheme();
@@ -23,6 +21,9 @@ window.onload = () => {
     const bookmarks = document.getElementById("bookmarks");
     bookmarks.insertAdjacentHTML("afterbegin", dom.html);
     folderAnimation();
+
+    // Fade in on load
+    document.body.style.opacity = "1";
   });
 };
 
