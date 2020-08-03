@@ -68,7 +68,7 @@ body.light {
   background-color: #fff; }
   body.light .apps {
     background-color: #eee;
-    box-shadow: 0 3px 13px 0 rgba(204, 204, 204, 0.3); }
+    box-shadow: 0 3px 13px 0 rgba(136, 136, 136, 0.4); }
   body.light .app,
   body.light .folder {
     color: #222; }
@@ -80,16 +80,16 @@ body.light {
       animation: glow-black 4s infinite;
       transition: 1s ease; }
   body.light .x-touch {
-    background-color: rgba(204, 204, 204, 0.6); }
+    background-color: rgba(204, 204, 204, 0.7); }
   body.light .folder-apps {
-    background-color: rgba(204, 204, 204, 0.6); }
+    background-color: rgba(204, 204, 204, 0.7); }
     body.light .folder-apps.expand .app-icon-letter {
       color: #222; }
   body.light .buttons .button {
     background-color: #fff;
     color: #333;
     background-image: linear-gradient(to right, #eee, #eee, #333, #444);
-    box-shadow: 0 3px 13px 0 rgba(204, 204, 204, 0.3); }
+    box-shadow: 0 3px 13px 0 rgba(136, 136, 136, 0.4); }
     body.light .buttons .button:hover {
       box-shadow: 0 3px 13px 0 rgba(34, 34, 34, 0.3);
       color: #fff; }
