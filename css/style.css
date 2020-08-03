@@ -32,8 +32,51 @@ body {
 
 body {
   opacity: 0;
-  transition: all 2s;
+  transition: all 1s ease-in-out;
   animation-fill-mode: forwards; }
+
+body .apps {
+  background-color: #333333;
+  box-shadow: 0 3px 13px 0 rgba(102, 102, 102, 0.3); }
+
+body .app,
+body .folder {
+  color: #ffffff; }
+
+body .app-icon {
+  background-image: linear-gradient(to right bottom, #555, #aaa); }
+  body .app-icon-letter {
+    color: #fff; }
+  body .app-icon:hover {
+    animation: glow-white 4s infinite;
+    transition: 1s ease; }
+
+body .x-touch {
+  background-color: rgba(101, 101, 101, 0.6); }
+
+body .folder-apps {
+  background-color: rgba(101, 101, 101, 0.6); }
+  body .folder-apps.expand .app-icon-letter {
+    color: #fff; }
+
+body .buttons .button {
+  background-color: #333333;
+  color: #ffffff;
+  background-image: linear-gradient(to right, #333333, #333333, #ffffff, #ddd);
+  box-shadow: 0 3px 13px 0 rgba(102, 102, 102, 0.3); }
+  body .buttons .button:hover {
+    box-shadow: 0 3px 13px 0 rgba(255, 255, 255, 0.3);
+    color: #222222; }
+
+@keyframes glow-white {
+  0% {
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); }
+  40% {
+    box-shadow: 0 0px 15px 0px rgba(255, 255, 255, 0.95); }
+  60% {
+    box-shadow: 0 20 15px 0px rgba(255, 255, 255, 0.5); }
+  100% {
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); } }
 
 .apps {
   transition: transform 0.6s ease-in-out;
@@ -42,9 +85,7 @@ body {
   border-radius: 35px;
   margin: 60px auto 0;
   transform-style: preserve-3d;
-  z-index: 2;
-  background-color: #333333;
-  box-shadow: 0 3px 13px 0 rgba(102, 102, 102, 0.3); }
+  z-index: 2; }
 
 .apps__page {
   display: inline-flex;
@@ -36060,12 +36101,10 @@ body {
   max-width: 70px;
   max-height: 90px;
   cursor: pointer;
-  text-decoration: none;
-  color: #ffffff; }
+  text-decoration: none; }
 
 .app-icon {
   position: relative;
-  background-image: linear-gradient(to right bottom, #555, #aaa);
   border-radius: 9px;
   width: 70px;
   margin: auto;
@@ -36085,7 +36124,6 @@ body {
     z-index: 0;
     font-size: 24px;
     text-transform: uppercase;
-    color: #fff;
     font-family: Montserrat;
     font-weight: 300;
     padding-top: 21px;
@@ -36096,7 +36134,6 @@ body {
     right: 0;
     text-align: center; }
   .app-icon:hover {
-    animation: glow 4s infinite;
     transition: 1s ease; }
 
 .x-touch {
@@ -36104,7 +36141,6 @@ body {
   font-size: 30px;
   opacity: 0;
   width: 342px;
-  background-color: rgba(101, 101, 101, 0.6);
   border-radius: 99px;
   padding: 20px 0;
   text-align: center;
@@ -36129,7 +36165,6 @@ body {
 
 .folder-apps {
   margin: auto;
-  background-color: rgba(101, 101, 101, 0.6);
   overflow-y: scroll;
   border-radius: 45px;
   backdrop-filter: blur(15px);
@@ -36174,8 +36209,6 @@ body {
       pointer-events: initial; }
     .folder-apps.expand .app-icon {
       border-radius: 9px; }
-      .folder-apps.expand .app-icon-letter {
-        color: #fff; }
     .folder-apps.expand .app-name {
       display: inherit;
       visibility: visible;
@@ -36221,23 +36254,7 @@ body {
     cursor: pointer;
     user-select: none;
     background-size: 300% 100%;
-    transition: all 1s;
-    background-color: #333333;
-    color: #ffffff;
-    background-image: linear-gradient(to right, #333333, #333333, #ffffff, #ddd);
-    box-shadow: 0 3px 13px 0 rgba(102, 102, 102, 0.3); }
+    transition: all 1s; }
     .buttons .button:hover {
       background-position: 100% 0;
-      transition: all 1s;
-      box-shadow: 0 3px 13px 0 rgba(255, 255, 255, 0.3);
-      color: #222222; }
-
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); }
-  40% {
-    box-shadow: 0 0px 15px 0px rgba(255, 255, 255, 0.95); }
-  60% {
-    box-shadow: 0 20 15px 0px rgba(255, 255, 255, 0.5); }
-  100% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); } }
+      transition: all 1s; }

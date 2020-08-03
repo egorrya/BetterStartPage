@@ -8,9 +8,6 @@ $container: 750px;
   margin: 60px auto 0;
   transform-style: preserve-3d;
   z-index: 2;
-
-  background-color: #333333;
-  box-shadow: 0 3px 13px 0 rgba(#666, 0.3);
 }
 
 .apps__page {
@@ -50,12 +47,10 @@ $container: 750px;
   max-height: 90px;
   cursor: pointer;
   text-decoration: none;
-  color: #ffffff;
 }
 
 .app-icon {
   position: relative;
-  background-image: linear-gradient(to right bottom, #555, #aaa);
   border-radius: 9px;
   width: 70px;
   margin: auto;
@@ -82,7 +77,6 @@ $container: 750px;
 
     font-size: 24px;
     text-transform: uppercase;
-    color: #fff;
     font-family: Montserrat;
     font-weight: 300;
 
@@ -96,10 +90,6 @@ $container: 750px;
     text-align: center;
   }
 
-  &:hover {
-    animation: glow 4s infinite;
-    transition: 1s ease;
-  }
 }
 
 .x-touch {
@@ -107,7 +97,6 @@ $container: 750px;
   font-size: 30px;
   opacity: 0;
   width: 342px;
-  background-color: rgba(#656565, 0.6);
   border-radius: 99px;
   padding: 20px 0;
   text-align: center;
@@ -135,7 +124,6 @@ $container: 750px;
 
 .folder-apps {
   margin: auto;
-  background-color: rgba(#656565, 0.6);
   overflow-y: scroll;
   border-radius: 45px;
   backdrop-filter: blur(15px);
@@ -198,10 +186,6 @@ $container: 750px;
 
     .app-icon {
       border-radius: 9px;
-
-      &-letter {
-        color: #fff;
-      }
     }
 
     .app-name {
@@ -264,38 +248,10 @@ $container: 750px;
     background-size: 300% 100%;
     transition: all 1s;
 
-    background-color: #333333;
-    color: #ffffff;
-    background-image: linear-gradient(
-      to right,
-      #333333,
-      #333333,
-      #ffffff,
-      #ddd
-    );
-    box-shadow: 0 3px 13px 0 rgba(#666, 0.3);
-
     &:hover {
       background-position: 100% 0;
       transition: all 1s;
-
-      box-shadow: 0 3px 13px 0 rgba(#ffffff, 0.3);
-      color: #222222;
     }
   }
 }
 
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
-  }
-  40% {
-    box-shadow: 0 0px 15px 0px rgba(#ffffff, 0.95);
-  }
-  60% {
-    box-shadow: 0 20 15px 0px rgba(#ffffff, 0.5);
-  }
-  100% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
-  }
-}

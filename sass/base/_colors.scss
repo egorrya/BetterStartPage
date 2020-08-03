@@ -1,0 +1,75 @@
+body {
+  .apps {
+    background-color: #333333;
+    box-shadow: 0 3px 13px 0 rgba(#666, 0.3);
+  }
+
+  .app,
+  .folder {
+    color: #ffffff;
+  }
+
+  .app-icon {
+    background-image: linear-gradient(to right bottom, #555, #aaa);
+
+    &-letter {
+      color: #fff;
+    }
+
+    &:hover {
+      animation: glow-white 4s infinite;
+      transition: 1s ease;
+    }
+  }
+
+  .x-touch {
+    background-color: rgba(#656565, 0.6);
+  }
+
+  .folder-apps {
+    background-color: rgba(#656565, 0.6);
+
+    &.expand {
+      .app-icon {
+        &-letter {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .buttons {
+    .button {
+      background-color: #333333;
+      color: #ffffff;
+      background-image: linear-gradient(
+        to right,
+        #333333,
+        #333333,
+        #ffffff,
+        #ddd
+      );
+      box-shadow: 0 3px 13px 0 rgba(#666, 0.3);
+
+      &:hover {  
+        box-shadow: 0 3px 13px 0 rgba(#ffffff, 0.3);
+        color: #222222;
+      }
+    }
+}
+}
+
+@keyframes glow-white {
+  0% {
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
+  }
+  40% {
+    box-shadow: 0 0px 15px 0px rgba(#ffffff, 0.95);
+  }
+  60% {
+    box-shadow: 0 20 15px 0px rgba(#ffffff, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
+  }
+}
