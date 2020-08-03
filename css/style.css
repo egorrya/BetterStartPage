@@ -27,7 +27,6 @@ body {
   position: relative;
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  background-color: #222;
   letter-spacing: 0.5px; }
 
 body {
@@ -35,38 +34,65 @@ body {
   transition: all 1s ease-in-out;
   animation-fill-mode: forwards; }
 
-body .apps {
-  background-color: #333333;
-  box-shadow: 0 3px 13px 0 rgba(102, 102, 102, 0.3); }
+body {
+  background-color: #222; }
+  body .apps {
+    background-color: #333333;
+    box-shadow: 0 3px 13px 0 rgba(102, 102, 102, 0.3); }
+  body .app,
+  body .folder {
+    color: #ffffff; }
+  body .app-icon {
+    background-image: linear-gradient(to right bottom, #555, #aaa); }
+    body .app-icon-letter {
+      color: #fff; }
+    body .app-icon:hover {
+      animation: glow-white 4s infinite;
+      transition: 1s ease; }
+  body .x-touch {
+    background-color: rgba(101, 101, 101, 0.6); }
+  body .folder-apps {
+    background-color: rgba(101, 101, 101, 0.6); }
+    body .folder-apps.expand .app-icon-letter {
+      color: #fff; }
+  body .buttons .button {
+    background-color: #333333;
+    color: #ffffff;
+    background-image: linear-gradient(to right, #333333, #333333, #ffffff, #ddd);
+    box-shadow: 0 3px 13px 0 rgba(102, 102, 102, 0.3); }
+    body .buttons .button:hover {
+      box-shadow: 0 3px 13px 0 rgba(255, 255, 255, 0.3);
+      color: #222222; }
 
-body .app,
-body .folder {
-  color: #ffffff; }
-
-body .app-icon {
-  background-image: linear-gradient(to right bottom, #555, #aaa); }
-  body .app-icon-letter {
-    color: #fff; }
-  body .app-icon:hover {
-    animation: glow-white 4s infinite;
-    transition: 1s ease; }
-
-body .x-touch {
-  background-color: rgba(101, 101, 101, 0.6); }
-
-body .folder-apps {
-  background-color: rgba(101, 101, 101, 0.6); }
-  body .folder-apps.expand .app-icon-letter {
-    color: #fff; }
-
-body .buttons .button {
-  background-color: #333333;
-  color: #ffffff;
-  background-image: linear-gradient(to right, #333333, #333333, #ffffff, #ddd);
-  box-shadow: 0 3px 13px 0 rgba(102, 102, 102, 0.3); }
-  body .buttons .button:hover {
-    box-shadow: 0 3px 13px 0 rgba(255, 255, 255, 0.3);
-    color: #222222; }
+body.light {
+  background-color: #fff; }
+  body.light .apps {
+    background-color: #eee;
+    box-shadow: 0 3px 13px 0 rgba(204, 204, 204, 0.3); }
+  body.light .app,
+  body.light .folder {
+    color: #222; }
+  body.light .app-icon {
+    background-image: linear-gradient(to right bottom, #bbb, #eee); }
+    body.light .app-icon-letter {
+      color: #222; }
+    body.light .app-icon:hover {
+      animation: glow-black 4s infinite;
+      transition: 1s ease; }
+  body.light .x-touch {
+    background-color: rgba(204, 204, 204, 0.6); }
+  body.light .folder-apps {
+    background-color: rgba(204, 204, 204, 0.6); }
+    body.light .folder-apps.expand .app-icon-letter {
+      color: #222; }
+  body.light .buttons .button {
+    background-color: #fff;
+    color: #333;
+    background-image: linear-gradient(to right, #eee, #eee, #333, #444);
+    box-shadow: 0 3px 13px 0 rgba(204, 204, 204, 0.3); }
+    body.light .buttons .button:hover {
+      box-shadow: 0 3px 13px 0 rgba(34, 34, 34, 0.3);
+      color: #fff; }
 
 @keyframes glow-white {
   0% {
@@ -75,6 +101,16 @@ body .buttons .button {
     box-shadow: 0 0px 15px 0px rgba(255, 255, 255, 0.95); }
   60% {
     box-shadow: 0 20 15px 0px rgba(255, 255, 255, 0.5); }
+  100% {
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); } }
+
+@keyframes glow-black {
+  0% {
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); }
+  40% {
+    box-shadow: 0 0px 15px 0px rgba(34, 34, 34, 0.95); }
+  60% {
+    box-shadow: 0 20 15px 0px rgba(34, 34, 34, 0.5); }
   100% {
     box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); } }
 
@@ -36133,8 +36169,6 @@ body .buttons .button {
     left: 0;
     right: 0;
     text-align: center; }
-  .app-icon:hover {
-    transition: 1s ease; }
 
 .x-touch {
   display: none;

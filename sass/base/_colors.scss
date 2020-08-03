@@ -1,4 +1,6 @@
 body {
+  background-color: #222;
+
   .apps {
     background-color: #333333;
     box-shadow: 0 3px 13px 0 rgba(#666, 0.3);
@@ -59,6 +61,69 @@ body {
 }
 }
 
+body.light {
+  background-color: #fff;
+
+  .apps {
+    background-color: #eee;
+    box-shadow: 0 3px 13px 0 rgba(#ccc, 0.3);
+  }
+
+  .app,
+  .folder {
+    color: #222;
+  }
+
+  .app-icon {
+    background-image: linear-gradient(to right bottom, #bbb, #eee);
+
+    &-letter {
+      color: #222;
+    }
+
+    &:hover {
+      animation: glow-black 4s infinite;
+      transition: 1s ease;
+    }
+  }
+
+  .x-touch {
+    background-color: rgba(#cccccc, 0.6);
+  }
+
+  .folder-apps {
+    background-color: rgba(#cccccc, 0.6);
+
+    &.expand {
+      .app-icon {
+        &-letter {
+          color: #222;
+        }
+      }
+    }
+  }
+
+  .buttons {
+    .button {
+      background-color: #fff;
+      color: #333;
+      background-image: linear-gradient(
+        to right,
+        #eee,
+        #eee,
+        #333,
+        #444
+      );
+      box-shadow: 0 3px 13px 0 rgba(#ccc, 0.3);
+
+      &:hover {  
+        box-shadow: 0 3px 13px 0 rgba(#222, 0.3);
+        color: #fff;
+      }
+    }
+}
+}
+
 @keyframes glow-white {
   0% {
     box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
@@ -68,6 +133,21 @@ body {
   }
   60% {
     box-shadow: 0 20 15px 0px rgba(#ffffff, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
+  }
+}
+
+@keyframes glow-black {
+  0% {
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
+  }
+  40% {
+    box-shadow: 0 0px 15px 0px rgba(#222222, 0.95);
+  }
+  60% {
+    box-shadow: 0 20 15px 0px rgba(#222222, 0.5);
   }
   100% {
     box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
