@@ -1,5 +1,8 @@
 window.onload = () => {
 
+  // add text if there's nothing
+  document.querySelector('.apps__text').textContent = "Open Bookmark Manager in your browser to add your first bookmark."
+
   // Get Chrome bookmarks tree
   chrome.bookmarks.getTree((itemTree) => {
     let dom = {
@@ -12,25 +15,16 @@ window.onload = () => {
 
     const bookmarks = document.getElementById("bookmarks");
     bookmarks.insertAdjacentHTML("afterbegin", dom.html);
+
+    if (dom.html) {
+      document.querySelector('.apps__text').remove()
+    }
+
     folderAnimation();
 
     // Fade in on load
     document.body.style.opacity = "1";
   });
-};
-
-// This function makes string shorter
-const ShortenString = (str, length) => {
-  return str.length > length ? str.substr(0, length - 3) + "..." : str;
-};
-
-// This function makes string shorter
-const FirstLetter = (str) => {
-  if (str[0]) {
-    return str[0];
-  } else {
-    return "";
-  }
 };
 
 const ProcessBookmarkNode = (node, dom) => {
@@ -86,4 +80,18 @@ const folderAnimation = () => {
       }
     });
   });
+};
+
+// This function makes string shorter
+const ShortenString = (str, length) => {
+  return str.length > length ? str.substr(0, length - 3) + "..." : str;
+};
+
+// This function makes string shorter
+const FirstLetter = (str) => {
+  if (str[0]) {
+    return str[0];
+  } else {
+    return "";
+  }
 };

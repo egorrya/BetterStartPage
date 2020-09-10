@@ -4,7 +4,13 @@ body {
   .apps {
     background-color: #ddd;
     box-shadow: 0 3px 13px 0 rgba(#bbb, 0.6);
+
+    &__text {
+      color: #222;
+    }
   }
+
+
 
   .app,
   .folder {
@@ -66,6 +72,10 @@ body {
     .apps {
       background-color: #333333;
       box-shadow: 0 3px 13px 0 rgba(#666, 0.3);
+
+      &__text {
+        color: #fff;
+      }
     }
 
     .app,

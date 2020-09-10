@@ -8,6 +8,12 @@ $container: 75rem;
   margin: 6vh auto;
   transform-style: preserve-3d;
   z-index: 2;
+
+  &__text {
+    font-size: 14px;
+    margin: 0 20px 20px;
+    line-height: 1.5;
+  }
 }
 
 .apps__page {
@@ -16,6 +22,8 @@ $container: 75rem;
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
+
+
   $z: 1px;
 
   @for $fy from 1 through 1000 {
@@ -196,7 +204,11 @@ $container: 75rem;
 
 @media screen and (max-width: 750px) {
 
-
+  .apps {
+    &__text {
+      margin: 8px 20px 20px;
+    }
+  }
 
   .apps__page {
     $z: 1px;

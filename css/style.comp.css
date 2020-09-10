@@ -47,6 +47,8 @@ body {
   body .apps {
     background-color: #ddd;
     box-shadow: 0 3px 13px 0 rgba(187, 187, 187, 0.6); }
+    body .apps__text {
+      color: #222; }
   body .app,
   body .folder {
     color: #222; }
@@ -78,6 +80,8 @@ body {
     body .apps {
       background-color: #333333;
       box-shadow: 0 3px 13px 0 rgba(102, 102, 102, 0.3); }
+      body .apps__text {
+        color: #fff; }
     body .app,
     body .folder {
       color: #ffffff; }
@@ -121,6 +125,10 @@ body {
   margin: 6vh auto;
   transform-style: preserve-3d;
   z-index: 2; }
+  .apps__text {
+    font-size: 14px;
+    margin: 0 20px 20px;
+    line-height: 1.5; }
 
 .apps__page {
   display: inline-flex;
@@ -24246,6 +24254,8 @@ body {
     opacity: 1; } }
 
 @media screen and (max-width: 750px) {
+  .apps__text {
+    margin: 8px 20px 20px; }
   .apps__page .folder:nth-child(1) .folder-apps.expand {
     transform: scale(1, 1) translate3d(-15px, 50px, 1px); }
     .apps__page .folder:nth-child(1) .folder-apps.expand ~ .folder-name {
