@@ -1,14 +1,13 @@
-$container: 750px;
+$container: 75rem;
 
 .apps {
   transition: all 1s ease-in-out;
   width: $container; // container - 700px
-  padding: 25px 15px 5px;
+  padding: 2.5rem 1.5rem .5rem;
   border-radius: 35px;
-  margin: 6vh auto 0;
+  margin: 6vh auto;
   transform-style: preserve-3d;
   z-index: 2;
-
 }
 
 .apps__page {
@@ -30,10 +29,6 @@ $container: 750px;
 
         ~.folder-name {
           transform: translate3d($x, $y - 390, $z);
-
-          ~.x-touch {
-            transform: translate3d($x, $y + 10, $z);
-          }
         }
       }
     }
@@ -58,22 +53,6 @@ $container: 750px;
   margin: auto;
   height: 70px;
 
-  &-img {
-    // temporary
-    display: none;
-
-    z-index: 1;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
-
-    width: 70px;
-    height: 70px;
-  }
-
   &-letter {
     z-index: 0;
 
@@ -92,18 +71,6 @@ $container: 750px;
     text-align: center;
   }
 
-}
-
-.x-touch {
-  display: none;
-  font-size: 30px;
-  opacity: 0;
-  width: 342px;
-  border-radius: 99px;
-  padding: 20px 0;
-  text-align: center;
-  font-size: 14px;
-  user-select: none;
 }
 
 .bg-blur {
@@ -170,13 +137,6 @@ $container: 750px;
       width: 360px;
     }
 
-    ~.x-touch {
-      display: block;
-      animation: 1s ease-in-out 0s forwards fadeIn;
-      visibility: visible;
-      opacity: 1;
-    }
-
     ~.bg-blur {
       backdrop-filter: blur(5px);
       visibility: visible;
@@ -234,29 +194,27 @@ $container: 750px;
   }
 }
 
-.buttons {
-  transition: transform 1s ease-in-out;
-  width: $container;
-  margin: 0 auto;
+@media screen and (max-width: 750px) {
 
-  .button {
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: 99px;
-    margin: 20px 20px 20px 0;
-    text-align: center;
-    border: none;
-    text-decoration: none;
-    outline: none;
-    text-transform: capitalize;
-    cursor: pointer;
-    // user-select: none;
-    background-size: 300% 100%;
-    transition: all 1s;
 
-    &:hover {
-      background-position: 100% 0;
-      transition: all 1s;
+
+  .apps__page {
+    $z: 1px;
+
+    @for $fy from 1 through 1000 {
+      $y: 50px - (110 * ($fy - 1));
+
+      @for $fx from 1 through 3 {
+        $x: -10px - (120 * ($fx - 1)) -5px;
+
+        .folder:nth-child(#{$fx+(3 * ($fy - 1))}) .folder-apps.expand {
+          transform: scale(1, 1) translate3d($x, $y, $z);
+
+          ~.folder-name {
+            transform: translate3d($x, $y - 390, $z);
+          }
+        }
+      }
     }
   }
 }

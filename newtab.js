@@ -53,19 +53,16 @@ const ProcessBookmarkNode = (node, dom) => {
   // Writing app icon
   if (node.url) {
     dom.html += ` <a class="app" href="${node.url}">
-                        <div class="app-icon">
-                        <img class="app-icon-img" src="chrome://favicon/${
-                          node.url
-                        }"/>
-                        <div class="app-icon-letter">${FirstLetter(
+                    <div class="app-icon">
+                      <div class="app-icon-letter">${FirstLetter(
                           node.title
-                        )}</div>
-                        </div>
-                        <div class="app-name">${ShortenString(
+                    )}</div>
+                    </div>
+                    <div class="app-name">${ShortenString(
                           node.title,
                           18
-                        )}</div>
-                      </a>`;
+                    )}</div>
+                  </a>`;
   }
 };
 

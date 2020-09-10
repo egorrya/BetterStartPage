@@ -26,11 +26,20 @@
   padding: 0;
 }
 
-
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
 
 body {
   position: relative;
   font-family: "Inter", sans-serif;
   font-weight: 500;
   letter-spacing: 0.5px;
+}
+
+@media screen and (max-width: 750px) {
+  html {
+    font-size: 31.25%; // 1rem = 5px
+    overflow-x: hidden;
+  }
 }
