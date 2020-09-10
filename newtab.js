@@ -1,13 +1,5 @@
 window.onload = () => {
 
-  // Change theme
-  changeTheme();
-
-  // Save user's theme to localStorage
-  if (localStorage.getItem("theme") === "light") {
-    document.body.classList.add("light");
-  }
-
   // Get Chrome bookmarks tree
   chrome.bookmarks.getTree((itemTree) => {
     let dom = {
@@ -53,7 +45,7 @@ const ProcessBookmarkNode = (node, dom) => {
     dom.html += `
         </div>
         <div class="folder-name">${ShortenString(node.title, 18)}</div>
-        <div class="x-touch">Close</div>
+        
         <div class="bg-blur"></div>
       </div>`;
   }
@@ -80,7 +72,7 @@ const ProcessBookmarkNode = (node, dom) => {
 // Animation of open/close
 const folderAnimation = () => {
   const folderApps = document.querySelectorAll(".folder-apps");
-  const xTouch = document.querySelectorAll(".x-touch");
+  const bgBlur = document.querySelectorAll(".bg-blur");
 
   // open
   folderApps.forEach((el) => {
@@ -90,23 +82,11 @@ const folderAnimation = () => {
   });
 
   // close
-  xTouch.forEach((el) => {
+  bgBlur.forEach((el) => {
     el.addEventListener("click", () => {
       for (let item of folderApps) {
         item.classList.remove("expand");
       }
     });
-  });
-};
-
-// dark theme
-const changeTheme = () => {
-  const themeToggleButton = document.getElementById("theme-toggle");
-  themeToggleButton.addEventListener("click", () => {
-    document.body.classList.toggle("light");
-    localStorage.setItem(
-      "theme",
-      document.body.classList.contains("light") ? "light" : "dark"
-    );
   });
 };

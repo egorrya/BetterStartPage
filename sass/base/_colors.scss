@@ -1,72 +1,9 @@
 body {
-  background-color: #222;
+  background-color: #eee;
 
   .apps {
-    background-color: #333333;
-    box-shadow: 0 3px 13px 0 rgba(#666, 0.3);
-  }
-
-  .app,
-  .folder {
-    color: #ffffff;
-  }
-
-  .app-icon {
-    background-image: linear-gradient(to right bottom, #555, #aaa);
-
-    &-letter {
-      color: #fff;
-    }
-
-    &:hover {
-      animation: glow-white 4s infinite;
-      transition: 1s ease;
-    }
-  }
-
-  .x-touch {
-    background-color: rgba(#656565, 0.6);
-  }
-
-  .folder-apps {
-    background-color: rgba(#656565, 0.6);
-
-    &.expand {
-      .app-icon {
-        &-letter {
-          color: #fff;
-        }
-      }
-    }
-  }
-
-  .buttons {
-    .button {
-      background-color: #333333;
-      color: #ffffff;
-      background-image: linear-gradient(
-        to right,
-        #333333,
-        #333333,
-        #ffffff,
-        #ddd
-      );
-      box-shadow: 0 3px 13px 0 rgba(#666, 0.3);
-
-      &:hover {  
-        box-shadow: 0 3px 13px 0 rgba(#ffffff, 0.3);
-        color: #222222;
-      }
-    }
-}
-}
-
-body.light {
-  background-color: #fff;
-
-  .apps {
-    background-color: #eee;
-    box-shadow: 0 3px 13px 0 rgba(#888, 0.4);
+    background-color: #ddd;
+    box-shadow: 0 3px 13px 0 rgba(#bbb, 0.6);
   }
 
   .app,
@@ -75,7 +12,7 @@ body.light {
   }
 
   .app-icon {
-    background-image: linear-gradient(to right bottom, #bbb, #eee);
+    background-image: linear-gradient(to right bottom, #fff, #eee);
 
     &-letter {
       color: #222;
@@ -107,33 +44,78 @@ body.light {
     .button {
       background-color: #fff;
       color: #333;
-      background-image: linear-gradient(
-        to right,
-        #eee,
-        #eee,
-        #333,
-        #444
-      );
+      background-image: linear-gradient(to right,
+          #eee,
+          #eee,
+          #333,
+          #444);
       box-shadow: 0 3px 13px 0 rgba(#888, 0.4);
 
-      &:hover {  
+      &:hover {
         box-shadow: 0 3px 13px 0 rgba(#222, 0.3);
         color: #fff;
       }
     }
+  }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #222;
+
+    .apps {
+      background-color: #333333;
+      box-shadow: 0 3px 13px 0 rgba(#666, 0.3);
+    }
+
+    .app,
+    .folder {
+      color: #ffffff;
+    }
+
+    .app-icon {
+      background-image: linear-gradient(to right bottom, #555, #aaa);
+
+      &-letter {
+        color: #fff;
+      }
+
+      &:hover {
+        animation: glow-white 4s infinite;
+        transition: 1s ease;
+      }
+    }
+
+    .folder-apps {
+      background-color: rgba(#656565, 0.6);
+
+      &.expand {
+        .app-icon {
+          &-letter {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
 }
+
+
+
 
 @keyframes glow-white {
   0% {
     box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
   }
+
   40% {
     box-shadow: 0 0px 15px 0px rgba(#ffffff, 0.95);
   }
+
   60% {
     box-shadow: 0 20 15px 0px rgba(#ffffff, 0.5);
   }
+
   100% {
     box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
   }
@@ -143,12 +125,15 @@ body.light {
   0% {
     box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
   }
+
   40% {
     box-shadow: 0 0px 15px 0px rgba(#222222, 0.95);
   }
+
   60% {
     box-shadow: 0 20 15px 0px rgba(#222222, 0.5);
   }
+
   100% {
     box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0);
   }

@@ -1,13 +1,14 @@
 $container: 750px;
 
 .apps {
-  transition: transform 0.6s ease-in-out;
+  transition: all 1s ease-in-out;
   width: $container; // container - 700px
   padding: 25px 15px 5px;
   border-radius: 35px;
-  margin: 60px auto 0;
+  margin: 6vh auto 0;
   transform-style: preserve-3d;
   z-index: 2;
+
 }
 
 .apps__page {
@@ -27,9 +28,10 @@ $container: 750px;
       .folder:nth-child(#{$fx+(6 * ($fy - 1))}) .folder-apps.expand {
         transform: scale(1, 1) translate3d($x, $y, $z);
 
-        ~ .folder-name {
+        ~.folder-name {
           transform: translate3d($x, $y - 390, $z);
-          ~ .x-touch {
+
+          ~.x-touch {
             transform: translate3d($x, $y + 10, $z);
           }
         }
@@ -105,12 +107,13 @@ $container: 750px;
 }
 
 .bg-blur {
-  position: absolute;
+  position: fixed;
   backdrop-filter: blur(0px);
-  top: -15%;
-  left: -15%;
-  width: 130%;
-  height: 130%;
+  top: -60px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
@@ -135,6 +138,7 @@ $container: 750px;
   width: 342px;
   height: 342px;
   $scale: 70/342;
+
   transform: scale($scale, $scale) {
     origin: 0 0;
   }
@@ -159,21 +163,21 @@ $container: 750px;
     outline: 0;
     padding: 30px 18px 5px;
 
-    ~ .folder-name {
+    ~.folder-name {
       animation: 1s ease-in-out 0s forwards fadeIn;
       font-size: 30px;
       opacity: 0;
       width: 360px;
     }
 
-    ~ .x-touch {
+    ~.x-touch {
       display: block;
       animation: 1s ease-in-out 0s forwards fadeIn;
       visibility: visible;
       opacity: 1;
     }
 
-    ~ .bg-blur {
+    ~.bg-blur {
       backdrop-filter: blur(5px);
       visibility: visible;
       opacity: 1;
@@ -224,6 +228,7 @@ $container: 750px;
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -241,10 +246,11 @@ $container: 750px;
     margin: 20px 20px 20px 0;
     text-align: center;
     border: none;
+    text-decoration: none;
     outline: none;
     text-transform: capitalize;
     cursor: pointer;
-    user-select: none;
+    // user-select: none;
     background-size: 300% 100%;
     transition: all 1s;
 
@@ -254,4 +260,3 @@ $container: 750px;
     }
   }
 }
-
