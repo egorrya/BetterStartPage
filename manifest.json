@@ -2,11 +2,17 @@
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },
-  "description": "Displays all bookmarks in the new tab page",
+  "name": "Better Start Page",
+  "description": "Minimalistic beautiful bookmarks in the new tab page. Add or edit all of your bookmarks in Bookmark Manager.",
 
   "manifest_version": 2,
-  "name": "New Tab with Bookmarks",
-  "permissions": ["bookmarks", "chrome://favicon/"],
+
+  "icons": {
+    "128": "img/128.png",
+    "16": "img/16.png",
+    "48": "img/48.png"
+  },
+  "permissions": ["bookmarks"],
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "version": "0.0.1"
+  "version": "1.0"
 }
