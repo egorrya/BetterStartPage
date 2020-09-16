@@ -1,5 +1,10 @@
 $container: 75rem;
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 .apps {
   transition: all 1s ease-in-out;
   width: $container; // container - 700px
@@ -84,10 +89,10 @@ $container: 75rem;
 .bg-blur {
   position: fixed;
   backdrop-filter: blur(0px);
-  top: -60px;
+  top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
   overflow: hidden;
   visibility: hidden;
@@ -103,6 +108,7 @@ $container: 75rem;
 .folder-apps {
   margin: auto;
   overflow-y: scroll;
+  scroll-behavior: smooth;
   border-radius: 45px;
   backdrop-filter: blur(15px);
   display: flex;
@@ -146,6 +152,7 @@ $container: 75rem;
     }
 
     ~.bg-blur {
+      animation: 0.5s ease-in-out 0s forwards fadeIn;
       backdrop-filter: blur(5px);
       visibility: visible;
       opacity: 1;

@@ -68,7 +68,11 @@ const folderAnimation = () => {
   // open
   folderApps.forEach((el) => {
     el.addEventListener("click", () => {
+      // adding .expand class
       el.classList.toggle("expand");
+
+      topFunction();
+      disableScroll();
     });
   });
 
@@ -77,6 +81,8 @@ const folderAnimation = () => {
     el.addEventListener("click", () => {
       for (let item of folderApps) {
         item.classList.remove("expand");
+
+        enableScroll();
       }
     });
   });
@@ -95,3 +101,18 @@ const FirstLetter = (str) => {
     return "";
   }
 };
+
+// back to top
+const topFunction = () => {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+// disable scroll
+function disableScroll() {
+  document.body.classList.add("stop-scrolling");
+}
+
+function enableScroll() {
+  document.body.classList.remove("stop-scrolling");
+}

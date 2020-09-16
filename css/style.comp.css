@@ -1,20 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
-::-webkit-scrollbar-track-piece {
-  background-color: rgba(0, 0, 0, 0); }
-
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px; }
-
-::-webkit-scrollbar-thumb {
-  height: 50px;
-  background-color: #888888;
-  --outline: 1px solid rgba(0, 0, 0, 0);
-  --outline-offset: -1px; }
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #111111; }
+  width: 0px;
+  height: 0px; }
 
 *,
 *:before,
@@ -24,7 +12,8 @@
   padding: 0; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
 
 body {
   position: relative;
@@ -116,6 +105,10 @@ body {
     box-shadow: 0 20 15px 0px rgba(34, 34, 34, 0.5); }
   100% {
     box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); } }
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden; }
 
 .apps {
   transition: all 1s ease-in-out;
@@ -24169,10 +24162,10 @@ body {
 .bg-blur {
   position: fixed;
   backdrop-filter: blur(0px);
-  top: -60px;
+  top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
   overflow: hidden;
   visibility: hidden;
@@ -24186,6 +24179,7 @@ body {
 .folder-apps {
   margin: auto;
   overflow-y: scroll;
+  scroll-behavior: smooth;
   border-radius: 45px;
   backdrop-filter: blur(15px);
   display: flex;
@@ -24216,6 +24210,7 @@ body {
       opacity: 0;
       width: 360px; }
     .folder-apps.expand ~ .bg-blur {
+      animation: 0.5s ease-in-out 0s forwards fadeIn;
       backdrop-filter: blur(5px);
       visibility: visible;
       opacity: 1; }
