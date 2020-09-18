@@ -10,8 +10,6 @@ body {
     }
   }
 
-
-
   .app,
   .folder {
     color: #222;
@@ -28,10 +26,6 @@ body {
       animation: glow-black 4s infinite;
       transition: 1s ease;
     }
-  }
-
-  .x-touch {
-    background-color: rgba(#ccc, 0.7);
   }
 
   .folder-apps {

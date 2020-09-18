@@ -1,4 +1,4 @@
-window.onload = () => {
+(function () {
 
   // add text if there's nothing
   document.querySelector('.apps__text').textContent = "Open Bookmark Manager in your browser to add your first bookmark."
@@ -25,7 +25,7 @@ window.onload = () => {
     // Fade in on load
     document.body.style.opacity = "1";
   });
-};
+})();
 
 const ProcessBookmarkNode = (node, dom) => {
   // Writing folder
@@ -109,10 +109,10 @@ const topFunction = () => {
 }
 
 // disable scroll
-function disableScroll() {
+const disableScroll = () => {
   document.body.classList.add("stop-scrolling");
 }
 
-function enableScroll() {
+const enableScroll = () => {
   document.body.classList.remove("stop-scrolling");
 }

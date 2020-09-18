@@ -93,7 +93,6 @@ $container: 75rem;
   left: 50%;
   transform: translate(-50%, 0);
   width: 99vw;
-  height: 100vh;
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
@@ -156,6 +155,7 @@ $container: 75rem;
       backdrop-filter: blur(5px);
       visibility: visible;
       opacity: 1;
+      height: 100vh;
     }
 
     .app {
