@@ -48,8 +48,6 @@ body {
     body .app-icon:hover {
       animation: glow-black 4s infinite;
       transition: 1s ease; }
-  body .x-touch {
-    background-color: rgba(204, 204, 204, 0.7); }
   body .folder-apps {
     background-color: rgba(204, 204, 204, 0.7); }
     body .folder-apps.expand .app-icon-letter {
@@ -75,7 +73,7 @@ body {
     body .folder {
       color: #ffffff; }
     body .app-icon {
-      background-image: linear-gradient(to right bottom, #555, #aaa); }
+      background-image: linear-gradient(to right bottom, #666, #aaa); }
       body .app-icon-letter {
         color: #fff; }
       body .app-icon:hover {
@@ -88,23 +86,23 @@ body {
 
 @keyframes glow-white {
   0% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); }
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0); }
   40% {
-    box-shadow: 0 0px 15px 0px rgba(255, 255, 255, 0.95); }
+    box-shadow: 0 0px 20px 0px rgba(255, 255, 255, 0.95); }
   60% {
-    box-shadow: 0 20 15px 0px rgba(255, 255, 255, 0.5); }
+    box-shadow: 0 0 15px 0px rgba(255, 255, 255, 0.5); }
   100% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); } }
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0); } }
 
 @keyframes glow-black {
   0% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); }
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0); }
   40% {
-    box-shadow: 0 0px 15px 0px rgba(34, 34, 34, 0.95); }
+    box-shadow: 0 0px 20px 0px rgba(255, 255, 255, 0.95); }
   60% {
-    box-shadow: 0 20 15px 0px rgba(34, 34, 34, 0.5); }
+    box-shadow: 0 0 15px 0px rgba(255, 255, 255, 0.5); }
   100% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0), 0 10px 25px rgba(33, 33, 33, 0); } }
+    box-shadow: 0 0 25px rgba(206, 160, 94, 0); } }
 
 .stop-scrolling {
   height: 100%;
@@ -113,7 +111,7 @@ body {
 .apps {
   transition: all 1s ease-in-out;
   width: 75rem;
-  padding: 2.5rem 1.5rem .5rem;
+  padding: 2.5rem 1.5rem 0.5rem;
   border-radius: 35px;
   margin: 6vh auto;
   transform-style: preserve-3d;
@@ -24166,7 +24164,6 @@ body {
   left: 50%;
   transform: translate(-50%, 0);
   width: 99vw;
-  height: 100vh;
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
@@ -24194,6 +24191,8 @@ body {
   .folder-apps .app {
     pointer-events: none;
     margin: 0 10px 25px; }
+  .folder-apps .folder {
+    display: none; }
   .folder-apps .app-icon {
     border-radius: 16px; }
   .folder-apps .app-name {
@@ -24203,17 +24202,22 @@ body {
   .folder-apps.expand {
     backdrop-filter: blur(0px);
     outline: 0;
-    padding: 30px 18px 5px; }
+    padding: 30px 18px 5px;
+    z-index: 8888;
+    position: relative; }
     .folder-apps.expand ~ .folder-name {
       animation: 1s ease-in-out 0s forwards fadeIn;
       font-size: 30px;
       opacity: 0;
-      width: 360px; }
+      width: 360px;
+      z-index: 8888;
+      position: relative; }
     .folder-apps.expand ~ .bg-blur {
       animation: 0.5s ease-in-out 0s forwards fadeIn;
       backdrop-filter: blur(5px);
       visibility: visible;
-      opacity: 1; }
+      opacity: 1;
+      height: 100vh; }
     .folder-apps.expand .app {
       margin: 0 16px 13px;
       pointer-events: initial; }

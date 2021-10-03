@@ -8,7 +8,7 @@ $container: 75rem;
 .apps {
   transition: all 1s ease-in-out;
   width: $container; // container - 700px
-  padding: 2.5rem 1.5rem .5rem;
+  padding: 2.5rem 1.5rem 0.5rem;
   border-radius: 35px;
   margin: 6vh auto;
   transform-style: preserve-3d;
@@ -28,7 +28,6 @@ $container: 75rem;
   width: 100%;
   height: 100%;
 
-
   $z: 1px;
 
   @for $fy from 1 through 1000 {
@@ -40,7 +39,7 @@ $container: 75rem;
       .folder:nth-child(#{$fx+(6 * ($fy - 1))}) .folder-apps.expand {
         transform: scale(1, 1) translate3d($x, $y, $z);
 
-        ~.folder-name {
+        ~ .folder-name {
           transform: translate3d($x, $y - 390, $z);
         }
       }
@@ -83,7 +82,6 @@ $container: 75rem;
     right: 0;
     text-align: center;
   }
-
 }
 
 .bg-blur {
@@ -128,6 +126,10 @@ $container: 75rem;
     margin: 0 10px 25px;
   }
 
+  .folder {
+    display: none;
+  }
+
   .app-icon {
     border-radius: 16px;
   }
@@ -142,15 +144,19 @@ $container: 75rem;
     backdrop-filter: blur(0px);
     outline: 0;
     padding: 30px 18px 5px;
+    z-index: 8888;
+    position: relative;
 
-    ~.folder-name {
+    ~ .folder-name {
       animation: 1s ease-in-out 0s forwards fadeIn;
       font-size: 30px;
       opacity: 0;
       width: 360px;
+      z-index: 8888;
+      position: relative;
     }
 
-    ~.bg-blur {
+    ~ .bg-blur {
       animation: 0.5s ease-in-out 0s forwards fadeIn;
       backdrop-filter: blur(5px);
       visibility: visible;
@@ -210,7 +216,6 @@ $container: 75rem;
 }
 
 @media screen and (max-width: 750px) {
-
   .apps {
     &__text {
       margin: 8px 20px 20px;
@@ -229,7 +234,7 @@ $container: 75rem;
         .folder:nth-child(#{$fx+(3 * ($fy - 1))}) .folder-apps.expand {
           transform: scale(1, 1) translate3d($x, $y, $z);
 
-          ~.folder-name {
+          ~ .folder-name {
             transform: translate3d($x, $y - 390, $z);
           }
         }
