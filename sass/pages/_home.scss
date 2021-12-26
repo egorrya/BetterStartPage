@@ -6,7 +6,12 @@ $container: 75rem;
 }
 
 .apps {
-  transition: all 1s ease-in-out;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+
   width: $container; // container - 700px
   padding: 2.5rem 1.5rem 0.5rem;
   border-radius: 35px;
@@ -86,15 +91,15 @@ $container: 75rem;
 
 .bg-blur {
   position: fixed;
-  backdrop-filter: blur(0px);
-  top: 0;
+  backdrop-filter: blur(5px);
+  top: -5px;
   left: 50%;
   transform: translate(-50%, 0);
   width: 99vw;
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease-in-out;
   z-index: 1;
 }
 
@@ -151,17 +156,18 @@ $container: 75rem;
       animation: 1s ease-in-out 0s forwards fadeIn;
       font-size: 30px;
       opacity: 0;
-      width: 360px;
+      width: 370px;
       z-index: 8888;
       position: relative;
     }
 
     ~ .bg-blur {
+      filter: blur(5px);
+
       animation: 0.5s ease-in-out 0s forwards fadeIn;
-      backdrop-filter: blur(5px);
       visibility: visible;
       opacity: 1;
-      height: 100vh;
+      height: 101vh;
     }
 
     .app {
@@ -240,5 +246,14 @@ $container: 75rem;
         }
       }
     }
+  }
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

@@ -26,40 +26,36 @@ body {
     font-size: 31.25%;
     overflow-x: hidden; } }
 
-body {
-  opacity: 0;
-  transition: all 1s ease-in-out;
-  animation-fill-mode: forwards; }
-
-body {
-  background-color: #eee; }
-  body .apps {
-    background-color: #ddd;
-    box-shadow: 0 3px 13px 0 rgba(187, 187, 187, 0.6); }
-    body .apps__text {
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #eee; }
+    body .apps {
+      background-color: #ddd;
+      box-shadow: 0 3px 13px 0 rgba(187, 187, 187, 0.6); }
+      body .apps__text {
+        color: #222; }
+    body .app,
+    body .folder {
       color: #222; }
-  body .app,
-  body .folder {
-    color: #222; }
-  body .app-icon {
-    background-image: linear-gradient(to right bottom, #fff, #eee); }
-    body .app-icon-letter {
-      color: #222; }
-    body .app-icon:hover {
-      animation: glow-black 4s infinite;
-      transition: 1s ease; }
-  body .folder-apps {
-    background-color: rgba(204, 204, 204, 0.7); }
-    body .folder-apps.expand .app-icon-letter {
-      color: #222; }
-  body .buttons .button {
-    background-color: #fff;
-    color: #333;
-    background-image: linear-gradient(to right, #eee, #eee, #333, #444);
-    box-shadow: 0 3px 13px 0 rgba(136, 136, 136, 0.4); }
-    body .buttons .button:hover {
-      box-shadow: 0 3px 13px 0 rgba(34, 34, 34, 0.3);
-      color: #fff; }
+    body .app-icon {
+      background-image: linear-gradient(to right bottom, #fff, #eee); }
+      body .app-icon-letter {
+        color: #222; }
+      body .app-icon:hover {
+        animation: glow-black 4s infinite;
+        transition: 1s ease; }
+    body .folder-apps {
+      background-color: rgba(204, 204, 204, 0.7); }
+      body .folder-apps.expand .app-icon-letter {
+        color: #222; }
+    body .buttons .button {
+      background-color: #fff;
+      color: #333;
+      background-image: linear-gradient(to right, #eee, #eee, #333, #444);
+      box-shadow: 0 3px 13px 0 rgba(136, 136, 136, 0.4); }
+      body .buttons .button:hover {
+        box-shadow: 0 3px 13px 0 rgba(34, 34, 34, 0.3);
+        color: #fff; } }
 
 @media (prefers-color-scheme: dark) {
   body {
@@ -109,7 +105,11 @@ body {
   overflow: hidden; }
 
 .apps {
-  transition: all 1s ease-in-out;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
   width: 75rem;
   padding: 2.5rem 1.5rem 0.5rem;
   border-radius: 35px;
@@ -24159,15 +24159,15 @@ body {
 
 .bg-blur {
   position: fixed;
-  backdrop-filter: blur(0px);
-  top: 0;
+  backdrop-filter: blur(5px);
+  top: -5px;
   left: 50%;
   transform: translate(-50%, 0);
   width: 99vw;
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease-in-out;
   z-index: 1; }
 
 .folder-apps::-webkit-scrollbar {
@@ -24209,15 +24209,15 @@ body {
       animation: 1s ease-in-out 0s forwards fadeIn;
       font-size: 30px;
       opacity: 0;
-      width: 360px;
+      width: 370px;
       z-index: 8888;
       position: relative; }
     .folder-apps.expand ~ .bg-blur {
+      filter: blur(5px);
       animation: 0.5s ease-in-out 0s forwards fadeIn;
-      backdrop-filter: blur(5px);
       visibility: visible;
       opacity: 1;
-      height: 100vh; }
+      height: 101vh; }
     .folder-apps.expand .app {
       margin: 0 16px 13px;
       pointer-events: initial; }
@@ -36255,3 +36255,9 @@ body {
     transform: scale(1, 1) translate3d(-255px, -109840px, 1px); }
     .apps__page .folder:nth-child(3000) .folder-apps.expand ~ .folder-name {
       transform: translate3d(-255px, -110230px, 1px); } }
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }

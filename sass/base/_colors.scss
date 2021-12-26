@@ -1,55 +1,57 @@
-body {
-  background-color: #eee;
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #eee;
 
-  .apps {
-    background-color: #ddd;
-    box-shadow: 0 3px 13px 0 rgba(#bbb, 0.6);
+    .apps {
+      background-color: #ddd;
+      box-shadow: 0 3px 13px 0 rgba(#bbb, 0.6);
 
-    &__text {
-      color: #222;
+      &__text {
+        color: #222;
+      }
     }
-  }
 
-  .app,
-  .folder {
-    color: #222;
-  }
-
-  .app-icon {
-    background-image: linear-gradient(to right bottom, #fff, #eee);
-
-    &-letter {
+    .app,
+    .folder {
       color: #222;
     }
 
-    &:hover {
-      animation: glow-black 4s infinite;
-      transition: 1s ease;
+    .app-icon {
+      background-image: linear-gradient(to right bottom, #fff, #eee);
+
+      &-letter {
+        color: #222;
+      }
+
+      &:hover {
+        animation: glow-black 4s infinite;
+        transition: 1s ease;
+      }
     }
-  }
 
-  .folder-apps {
-    background-color: rgba(#ccc, 0.7);
+    .folder-apps {
+      background-color: rgba(#ccc, 0.7);
 
-    &.expand {
-      .app-icon {
-        &-letter {
-          color: #222;
+      &.expand {
+        .app-icon {
+          &-letter {
+            color: #222;
+          }
         }
       }
     }
-  }
 
-  .buttons {
-    .button {
-      background-color: #fff;
-      color: #333;
-      background-image: linear-gradient(to right, #eee, #eee, #333, #444);
-      box-shadow: 0 3px 13px 0 rgba(#888, 0.4);
+    .buttons {
+      .button {
+        background-color: #fff;
+        color: #333;
+        background-image: linear-gradient(to right, #eee, #eee, #333, #444);
+        box-shadow: 0 3px 13px 0 rgba(#888, 0.4);
 
-      &:hover {
-        box-shadow: 0 3px 13px 0 rgba(#222, 0.3);
-        color: #fff;
+        &:hover {
+          box-shadow: 0 3px 13px 0 rgba(#222, 0.3);
+          color: #fff;
+        }
       }
     }
   }

@@ -1,7 +1,7 @@
 (function () {
-
   // add text if there's nothing
-  document.querySelector('.apps__text').textContent = "Open Bookmark Manager in your browser to add your first bookmark."
+  document.querySelector(".apps__text").textContent =
+    "Open Bookmark Manager in your browser to add your first bookmark.";
 
   // Get Chrome bookmarks tree
   chrome.bookmarks.getTree((itemTree) => {
@@ -17,13 +17,10 @@
     bookmarks.insertAdjacentHTML("afterbegin", dom.html);
 
     if (dom.html) {
-      document.querySelector('.apps__text').remove()
+      document.querySelector(".apps__text").remove();
     }
 
     folderAnimation();
-
-    // Fade in on load
-    document.body.style.opacity = "1";
   });
 })();
 
@@ -49,13 +46,10 @@ const ProcessBookmarkNode = (node, dom) => {
     dom.html += ` <a class="app" href="${node.url}">
                     <div class="app-icon">
                       <div class="app-icon-letter">${FirstLetter(
-                          node.title
-                    )}</div>
+                        node.title
+                      )}</div>
                     </div>
-                    <div class="app-name">${ShortenString(
-                          node.title,
-                          18
-                    )}</div>
+                    <div class="app-name">${ShortenString(node.title, 18)}</div>
                   </a>`;
   }
 };
@@ -106,13 +100,13 @@ const FirstLetter = (str) => {
 const topFunction = () => {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
+};
 
 // disable scroll
 const disableScroll = () => {
   document.body.classList.add("stop-scrolling");
-}
+};
 
 const enableScroll = () => {
   document.body.classList.remove("stop-scrolling");
-}
+};
