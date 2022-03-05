@@ -162,7 +162,7 @@ $container: 75rem;
     }
 
     ~ .bg-blur {
-      filter: blur(5px);
+      filter: blur(1rem);
 
       animation: 0.5s ease-in-out 0s forwards fadeIn;
       visibility: visible;
