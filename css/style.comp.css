@@ -121,7 +121,7 @@ body {
 .apps {
   animation: 0.8s ease-in-out 0s forwards fadeIn;
   width: 75rem;
-  padding: 3.75rem 1.5rem 0rem;
+  padding: 3.6rem 1.5rem 0rem;
   border-radius: 35px;
   margin: 7vh auto;
   transform-style: preserve-3d;
@@ -24239,8 +24239,8 @@ body {
 .folder-name {
   text-align: center;
   padding-top: 5px;
-  font-size: 10px;
-  line-height: 13px;
+  font-size: 9.5px;
+  line-height: 12.5px;
   user-select: none;
   width: 100px;
   margin-left: -15px;
