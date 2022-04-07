@@ -21,6 +21,9 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   letter-spacing: 0.5px;
+
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (max-width: 750px) {

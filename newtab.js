@@ -37,8 +37,9 @@ const ProcessBookmarkNode = (node, dom) => {
         </div>
         <div class="folder-name">${ShortenString(node.title, 18)}</div>
         
-        <div class="bg-blur"></div>
-      </div>`;
+          <div class="bg-blur"></div>
+
+        </div>`;
   }
 
   // Writing app icon
@@ -63,7 +64,7 @@ const folderAnimation = () => {
   folderApps.forEach((el) => {
     el.addEventListener("click", () => {
       // adding .expand class
-      el.classList.toggle("expand");
+      el.classList.add("expand");
 
       topFunction();
       disableScroll();

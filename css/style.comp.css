@@ -1,5 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@font-face {
+  font-family: "Inter";
+  font-weight: 500;
+  src: url("./../fonts/Inter-Medium.ttf") format("opentype"); }
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 300;
+  src: url("./../../fonts/Montserrat-Light.ttf") format("opentype"); }
+
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px; }
@@ -19,7 +27,9 @@ body {
   position: relative;
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  letter-spacing: 0.5px; }
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center; }
 
 @media screen and (max-width: 750px) {
   html {
@@ -37,6 +47,8 @@ body {
     body .app,
     body .folder {
       color: #222; }
+    body .bg-blur {
+      background: rgba(238, 238, 238, 0.8); }
     body .app-icon {
       background-image: linear-gradient(to right bottom, #fff, #eee); }
       body .app-icon-letter {
@@ -68,6 +80,8 @@ body {
     body .app,
     body .folder {
       color: #ffffff; }
+    body .bg-blur {
+      background: rgba(34, 34, 34, 0.8); }
     body .app-icon {
       background-image: linear-gradient(to right bottom, #666, #aaa); }
       body .app-icon-letter {
@@ -105,20 +119,16 @@ body {
   overflow: hidden; }
 
 .apps {
-  opacity: 1;
-  animation-name: fadeInOpacity;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-duration: 1s;
+  animation: 0.8s ease-in-out 0s forwards fadeIn;
   width: 75rem;
-  padding: 2.5rem 1.5rem 0.5rem;
+  padding: 3.75rem 1.5rem 0rem;
   border-radius: 35px;
-  margin: 6vh auto;
+  margin: 7vh auto;
   transform-style: preserve-3d;
   z-index: 2; }
   .apps__text {
     font-size: 14px;
-    margin: 0 20px 20px;
+    margin: 0 auto 35px;
     line-height: 1.5; }
 
 .apps__page {
@@ -24149,6 +24159,7 @@ body {
     text-transform: uppercase;
     font-family: Montserrat;
     font-weight: 300;
+    user-select: none;
     padding-top: 21px;
     position: absolute;
     margin-left: auto;
@@ -24159,16 +24170,16 @@ body {
 
 .bg-blur {
   position: fixed;
-  backdrop-filter: blur(5px);
-  top: -5px;
+  top: -7vh;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 99vw;
+  width: 100vw;
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 1; }
+  z-index: 1;
+  height: 100vh;
+  transition: opacity 0.25s; }
 
 .folder-apps::-webkit-scrollbar {
   display: none; }
@@ -24178,14 +24189,13 @@ body {
   overflow-y: scroll;
   scroll-behavior: smooth;
   border-radius: 45px;
-  backdrop-filter: blur(15px);
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  transition: transform 0.4s;
   padding: 45px 35px 10px;
   width: 342px;
   height: 342px;
+  transition: transform 0.2s;
   transform: scale(0.20468, 0.20468);
     transform-origin: 0 0; }
   .folder-apps .app {
@@ -24200,24 +24210,21 @@ body {
     opacity: 0;
     visibility: hidden; }
   .folder-apps.expand {
-    backdrop-filter: blur(0px);
     outline: 0;
     padding: 30px 18px 5px;
     z-index: 8888;
-    position: relative; }
+    position: relative;
+    cursor: auto; }
     .folder-apps.expand ~ .folder-name {
-      animation: 1s ease-in-out 0s forwards fadeIn;
-      font-size: 30px;
+      font-size: 26px;
       opacity: 0;
       width: 370px;
       z-index: 8888;
-      position: relative; }
+      position: relative;
+      animation: 0.8s ease-in-out 0s forwards fadeIn; }
     .folder-apps.expand ~ .bg-blur {
-      filter: blur(5px);
-      animation: 0.5s ease-in-out 0s forwards fadeIn;
       visibility: visible;
-      opacity: 1;
-      height: 101vh; }
+      opacity: 1; }
     .folder-apps.expand .app {
       margin: 0 16px 13px;
       pointer-events: initial; }
@@ -24226,7 +24233,6 @@ body {
     .folder-apps.expand .app-name {
       display: inherit;
       visibility: visible;
-      animation: 1s ease-in-out 0s forwards fadeIn;
       opacity: 1; }
 
 .app-name,
@@ -24237,7 +24243,8 @@ body {
   line-height: 13px;
   user-select: none;
   width: 100px;
-  margin-left: -15px; }
+  margin-left: -15px;
+  animation: 0.3s ease-in-out 0s forwards fadeIn; }
 
 .folder .app-name {
   padding-top: 3px; }
@@ -36256,7 +36263,7 @@ body {
     .apps__page .folder:nth-child(3000) .folder-apps.expand ~ .folder-name {
       transform: translate3d(-255px, -110230px, 1px); } }
 
-@keyframes fadeInOpacity {
+@keyframes fadeIn {
   0% {
     opacity: 0; }
   100% {

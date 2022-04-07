@@ -1,2 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@font-face {
+  font-family: "Inter";
+  font-weight: 500;
+  src: url("./../fonts/Inter-Medium.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 300;
+  src: url("./../../fonts/Montserrat-Light.ttf") format("opentype");
+}

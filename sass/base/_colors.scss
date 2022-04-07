@@ -16,6 +16,10 @@
       color: #222;
     }
 
+    .bg-blur {
+      background: rgba(238, 238, 238, 0.8);
+    }
+
     .app-icon {
       background-image: linear-gradient(to right bottom, #fff, #eee);
 
@@ -73,6 +77,10 @@
     .app,
     .folder {
       color: #ffffff;
+    }
+
+    .bg-blur {
+      background: rgba(34, 34, 34, 0.8);
     }
 
     .app-icon {
