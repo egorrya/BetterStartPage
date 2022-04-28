@@ -100,7 +100,7 @@ $container: 75rem;
   opacity: 0;
   z-index: 1;
   height: 100vh;
-  transition: opacity 0.25s;
+  transition: opacity 0.4s;
 }
 
 .folder-apps::-webkit-scrollbar {
@@ -108,27 +108,40 @@ $container: 75rem;
 }
 
 .folder-apps {
+  position: relative;
   margin: auto;
-  overflow-y: scroll;
+  overflow-y: hidden;
   scroll-behavior: smooth;
   border-radius: 45px;
-  // backdrop-filter: blur(15px);
+
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  padding: 45px 35px 10px;
+  padding: 45px 35px 15px;
   width: 342px;
   height: 342px;
   $scale: 70/342;
-  transition: transform 0.2s;
+  transition: transform 0.35s;
 
   transform: scale($scale, $scale) {
     origin: 0 0;
   }
 
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    z-index: 7;
+    width: 100%;
+    height: 6%;
+    transition: 0.35s;
+  }
+
   .app {
     pointer-events: none;
-    margin: 0 10px 25px;
+    margin: 0 10.3px 25px;
   }
 
   .folder {
@@ -147,10 +160,15 @@ $container: 75rem;
 
   &.expand {
     outline: 0;
-    padding: 30px 18px 5px;
-    z-index: 8888;
+    padding: 37px 24px 8px;
+    overflow-y: scroll;
+    // z-index: 8888;
     position: relative;
     cursor: auto;
+
+    &::before {
+      height: 0;
+    }
 
     ~ .folder-name {
       font-size: 26px;
@@ -158,18 +176,19 @@ $container: 75rem;
       width: 370px;
       z-index: 8888;
       position: relative;
-      animation: 0.8s ease-in-out 0s forwards fadeIn;
+      animation: 1s ease-in-out 0s forwards fadeIn;
     }
 
     ~ .bg-blur {
       // animation: 0.2s ease-in-out 0s forwards fadeIn;
       visibility: visible;
       opacity: 1;
+      z-index: 10;
       // backdrop-filter: blur(1px);
     }
 
     .app {
-      margin: 0 16px 13px;
+      margin: 0 14px 13px;
       pointer-events: initial;
     }
 
@@ -194,7 +213,7 @@ $container: 75rem;
   user-select: none;
   width: 100px;
   margin-left: -15px;
-  animation: 0.3s ease-in-out 0s forwards fadeIn;
+  animation: 0.5s ease-in-out 0s forwards fadeIn;
 }
 
 .folder {

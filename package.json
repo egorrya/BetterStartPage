@@ -1,6 +1,6 @@
 {
   "name": "betterstartpage",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "main": "index.js",
   "scripts": {
     "watch:sass": "node-sass sass/main.scss css/style.css -w",

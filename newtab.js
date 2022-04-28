@@ -65,6 +65,8 @@ const folderAnimation = () => {
     el.addEventListener("click", () => {
       // adding .expand class
       el.classList.add("expand");
+      el.parentElement.style.zIndex = "8888";
+      el.style.zIndex = "8888";
 
       topFunction();
       disableScroll();
@@ -74,11 +76,26 @@ const folderAnimation = () => {
   // close
   bgBlur.forEach((el) => {
     el.addEventListener("click", () => {
+      const folder = el.parentElement;
+      const folderAppsExact = folder.querySelector(".folder-apps");
+
+      folder.style.zIndex = "8888";
+      folderAppsExact.style.zIndex = "8888";
+
       for (let item of folderApps) {
         item.classList.remove("expand");
 
         enableScroll();
       }
+
+      folderAppsExact.scrollTop = 0;
+
+      setTimeout(() => {
+        if (!document.querySelector(".expand")) {
+          folder.style.zIndex = "1";
+          folderAppsExact.style.zIndex = "1";
+        }
+      }, 350);
     });
   });
 };

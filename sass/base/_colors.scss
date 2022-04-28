@@ -22,6 +22,7 @@
 
     .app-icon {
       background-image: linear-gradient(to right bottom, #fff, #eee);
+      box-shadow: 0 0px 10px 0px rgba(#000, 0.1);
 
       &-letter {
         color: #222;
@@ -34,7 +35,11 @@
     }
 
     .folder-apps {
-      background-color: rgba(#ccc, 0.7);
+      background-color: rgba(#ccc, 0.8);
+
+      &::before {
+        background-color: #cfcfcf;
+      }
 
       &.expand {
         .app-icon {
@@ -84,7 +89,7 @@
     }
 
     .app-icon {
-      background-image: linear-gradient(to right bottom, #666, #aaa);
+      background-image: linear-gradient(to right bottom, #777, #aaa);
 
       &-letter {
         color: #fff;
@@ -97,7 +102,11 @@
     }
 
     .folder-apps {
-      background-color: rgba(#656565, 0.6);
+      background-color: rgba(#656565, 0.8);
+
+      &::before {
+        background-color: #5b5b5b;
+      }
 
       &.expand {
         .app-icon {
@@ -130,18 +139,18 @@
 
 @keyframes glow-black {
   0% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0);
+    box-shadow: 0 0px 10px 0px rgba(#000, 0.15);
   }
 
   40% {
-    box-shadow: 0 0px 20px 0px rgba(#ffffff, 0.95);
+    box-shadow: 0 0px 20px 0px rgba(#000, 0.65);
   }
 
   60% {
-    box-shadow: 0 0 15px 0px rgba(#ffffff, 0.5);
+    box-shadow: 0 0 15px 0px rgba(#000, 0.5);
   }
 
   100% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0);
+    box-shadow: 0 0px 10px 0px rgba(#000, 0.15);
   }
 }

@@ -50,14 +50,17 @@ body {
     body .bg-blur {
       background: rgba(238, 238, 238, 0.8); }
     body .app-icon {
-      background-image: linear-gradient(to right bottom, #fff, #eee); }
+      background-image: linear-gradient(to right bottom, #fff, #eee);
+      box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.1); }
       body .app-icon-letter {
         color: #222; }
       body .app-icon:hover {
         animation: glow-black 4s infinite;
         transition: 1s ease; }
     body .folder-apps {
-      background-color: rgba(204, 204, 204, 0.7); }
+      background-color: rgba(204, 204, 204, 0.8); }
+      body .folder-apps::before {
+        background-color: #cfcfcf; }
       body .folder-apps.expand .app-icon-letter {
         color: #222; }
     body .buttons .button {
@@ -83,14 +86,16 @@ body {
     body .bg-blur {
       background: rgba(34, 34, 34, 0.8); }
     body .app-icon {
-      background-image: linear-gradient(to right bottom, #666, #aaa); }
+      background-image: linear-gradient(to right bottom, #777, #aaa); }
       body .app-icon-letter {
         color: #fff; }
       body .app-icon:hover {
         animation: glow-white 4s infinite;
         transition: 1s ease; }
     body .folder-apps {
-      background-color: rgba(101, 101, 101, 0.6); }
+      background-color: rgba(101, 101, 101, 0.8); }
+      body .folder-apps::before {
+        background-color: #5b5b5b; }
       body .folder-apps.expand .app-icon-letter {
         color: #fff; } }
 
@@ -106,13 +111,13 @@ body {
 
 @keyframes glow-black {
   0% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0); }
+    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.15); }
   40% {
-    box-shadow: 0 0px 20px 0px rgba(255, 255, 255, 0.95); }
+    box-shadow: 0 0px 20px 0px rgba(0, 0, 0, 0.65); }
   60% {
-    box-shadow: 0 0 15px 0px rgba(255, 255, 255, 0.5); }
+    box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.5); }
   100% {
-    box-shadow: 0 0 25px rgba(206, 160, 94, 0); } }
+    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.15); } }
 
 .stop-scrolling {
   height: 100%;
@@ -24179,28 +24184,38 @@ body {
   opacity: 0;
   z-index: 1;
   height: 100vh;
-  transition: opacity 0.25s; }
+  transition: opacity 0.4s; }
 
 .folder-apps::-webkit-scrollbar {
   display: none; }
 
 .folder-apps {
+  position: relative;
   margin: auto;
-  overflow-y: scroll;
+  overflow-y: hidden;
   scroll-behavior: smooth;
   border-radius: 45px;
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  padding: 45px 35px 10px;
+  padding: 45px 35px 15px;
   width: 342px;
   height: 342px;
-  transition: transform 0.2s;
+  transition: transform 0.35s;
   transform: scale(0.20468, 0.20468);
     transform-origin: 0 0; }
+  .folder-apps::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 7;
+    width: 100%;
+    height: 6%;
+    transition: 0.35s; }
   .folder-apps .app {
     pointer-events: none;
-    margin: 0 10px 25px; }
+    margin: 0 10.3px 25px; }
   .folder-apps .folder {
     display: none; }
   .folder-apps .app-icon {
@@ -24211,22 +24226,25 @@ body {
     visibility: hidden; }
   .folder-apps.expand {
     outline: 0;
-    padding: 30px 18px 5px;
-    z-index: 8888;
+    padding: 37px 24px 8px;
+    overflow-y: scroll;
     position: relative;
     cursor: auto; }
+    .folder-apps.expand::before {
+      height: 0; }
     .folder-apps.expand ~ .folder-name {
       font-size: 26px;
       opacity: 0;
       width: 370px;
       z-index: 8888;
       position: relative;
-      animation: 0.8s ease-in-out 0s forwards fadeIn; }
+      animation: 1s ease-in-out 0s forwards fadeIn; }
     .folder-apps.expand ~ .bg-blur {
       visibility: visible;
-      opacity: 1; }
+      opacity: 1;
+      z-index: 10; }
     .folder-apps.expand .app {
-      margin: 0 16px 13px;
+      margin: 0 14px 13px;
       pointer-events: initial; }
     .folder-apps.expand .app-icon {
       border-radius: 9px; }
@@ -24244,7 +24262,7 @@ body {
   user-select: none;
   width: 100px;
   margin-left: -15px;
-  animation: 0.3s ease-in-out 0s forwards fadeIn; }
+  animation: 0.5s ease-in-out 0s forwards fadeIn; }
 
 .folder .app-name {
   padding-top: 3px; }
