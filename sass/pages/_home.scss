@@ -98,9 +98,10 @@ $container: 75rem;
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
-  z-index: 1;
+  // z-index: 1;
   height: 100vh;
-  transition: opacity 0.4s;
+  transition: opacity 0.2s;
+  // animation: 0.8s ease-in-out 0s forwards fadeIn;
 }
 
 .folder-apps::-webkit-scrollbar {

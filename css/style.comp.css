@@ -48,7 +48,7 @@ body {
     body .folder {
       color: #222; }
     body .bg-blur {
-      background: rgba(238, 238, 238, 0.8); }
+      background: rgba(238, 238, 238, 0.6); }
     body .app-icon {
       background-image: linear-gradient(to right bottom, #fff, #eee);
       box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.1); }
@@ -58,7 +58,7 @@ body {
         animation: glow-black 4s infinite;
         transition: 1s ease; }
     body .folder-apps {
-      background-color: rgba(204, 204, 204, 0.8); }
+      background-color: rgba(204, 204, 204, 0.9); }
       body .folder-apps::before {
         background-color: #cfcfcf; }
       body .folder-apps.expand .app-icon-letter {
@@ -84,7 +84,7 @@ body {
     body .folder {
       color: #ffffff; }
     body .bg-blur {
-      background: rgba(34, 34, 34, 0.8); }
+      background: rgba(34, 34, 34, 0.6); }
     body .app-icon {
       background-image: linear-gradient(to right bottom, #777, #aaa); }
       body .app-icon-letter {
@@ -93,7 +93,7 @@ body {
         animation: glow-white 4s infinite;
         transition: 1s ease; }
     body .folder-apps {
-      background-color: rgba(101, 101, 101, 0.8); }
+      background-color: rgba(101, 101, 101, 0.9); }
       body .folder-apps::before {
         background-color: #5b5b5b; }
       body .folder-apps.expand .app-icon-letter {
@@ -24182,9 +24182,8 @@ body {
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
-  z-index: 1;
   height: 100vh;
-  transition: opacity 0.4s; }
+  transition: opacity 0.2s; }
 
 .folder-apps::-webkit-scrollbar {
   display: none; }

@@ -63,6 +63,11 @@ const folderAnimation = () => {
   // open
   folderApps.forEach((el) => {
     el.addEventListener("click", () => {
+      folderApps.forEach((el) => {
+        el.parentElement.style.zIndex = "1";
+        el.style.zIndex = "1";
+      });
+
       // adding .expand class
       el.classList.add("expand");
       el.parentElement.style.zIndex = "8888";
