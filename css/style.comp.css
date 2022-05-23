@@ -95,7 +95,7 @@ body {
     body .folder-apps {
       background-color: rgba(101, 101, 101, 0.9); }
       body .folder-apps::before {
-        background-color: #5b5b5b; }
+        background-color: #606060; }
       body .folder-apps.expand .app-icon-letter {
         color: #fff; } }
 
@@ -24204,7 +24204,7 @@ body {
   transform: scale(0.20468, 0.20468);
     transform-origin: 0 0; }
   .folder-apps::before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
@@ -24277,8 +24277,10 @@ body {
     opacity: 1; } }
 
 @media screen and (max-width: 750px) {
-  .apps__text {
-    margin: 8px 20px 20px; }
+  .apps {
+    padding-top: 35px; }
+    .apps__text {
+      margin: 8px 20px 20px; }
   .apps__page .folder:nth-child(1) .folder-apps.expand {
     transform: scale(1, 1) translate3d(-15px, 50px, 1px); }
     .apps__page .folder:nth-child(1) .folder-apps.expand ~ .folder-name {

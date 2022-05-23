@@ -129,7 +129,7 @@ $container: 75rem;
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
@@ -241,6 +241,8 @@ $container: 75rem;
 
 @media screen and (max-width: 750px) {
   .apps {
+    padding-top: 35px;
+
     &__text {
       margin: 8px 20px 20px;
     }
